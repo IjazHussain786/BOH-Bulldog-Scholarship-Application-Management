@@ -1,0 +1,27 @@
+﻿<div class="modal-header">
+    Get Id For Letter Of Recommendation
+</div>
+<div class="modal-body">
+    <div class="well">
+        <div class="container">
+            <form role="form" name="getIdForm" class="form-horizontal" data-ui-keypress="{13:'ok(getIdForm)'}">
+                <div class="form-group">
+                    <label class="control-label" for="applicantsEmailAddress">Applicant's Email Address</label>
+                    <div class="">
+                        <input type="email" class="form-control" name="applicantsEmailAddress" data-ng-model="getLetterOfRecommendationGuidModel.applicantsEmailAddress" placeholder="Applicant's Email Address" required/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="referencesEmailAddress">Reference's Email Address</label>
+                    <div class="">
+                        <input type="email" class="form-control" name="referencesEmailAddress" data-ng-model="getLetterOfRecommendationGuidModel.referencesEmailAddress" placeholder="Reference's Email Address" required />
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" ng-click="ok(getIdForm)" data-ng-disabled="academicInformationForm.$invalid">Get ID for Letter Of Recommendation</button>
+    <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+</div>

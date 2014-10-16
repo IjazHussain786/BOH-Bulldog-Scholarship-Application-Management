@@ -1,0 +1,21 @@
+﻿<admin-nav-bar></admin-nav-bar>
+<div class="container">
+    <div class="col-sm-push-4 col-sm-8 col-xs-8">
+        <h4>Admin Dashboard</h4>
+    </div>
+</div>
+<div class="container">
+    <div class="well">
+        <button type="button" class="btn btn-primary" data-ng-disabled="getNumberOfPendingApplicationEvaluators() < 1" data-ng-click="clickLinkButton('/Admin/ConfirmPendingApplicationEvaluators')">
+            Confirm Application Evaluators
+            <span class="badge navbar-badge-size navbar-badge-black-font">
+                {{getNumberOfPendingApplicationEvaluators()}}
+            </span>
+        </button>
+        <button type="button" class="btn btn-primary" data-ng-click="clickLinkButton('/Admin/InviteApplicationEvaluator')">
+            Invite Application Evaluators
+        </button>
+        <button type="button" class="btn btn-primary" data-ng-click="clickLinkButton('/Admin/EditEssayTopics')">Edit Essay Topics</button>
+        <button type="button" class="btn btn-primary" data-ng-click="clickLinkButton('/Admin/AddLetterOfRecommendation')">Add Letter of Recommendation for Reference</button>
+    </div>
+</div>

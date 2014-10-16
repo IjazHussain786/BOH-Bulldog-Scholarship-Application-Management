@@ -1,0 +1,15 @@
+﻿<li class="list-group-item">
+    <div class="row">
+        <div class="well-sm">
+            <h4>{{dashboardListItem.title}}
+                <span class="pull-right">
+                    <a data-ng-href="{{dashboardListItem.link}}">
+                        <button data-ng-class="dashboardListItem.buttonStyle == 0 ? 'btn btn-warning' : (dashboardListItem.buttonStyle == 4 ? 'btn btn-info'  : (dashboardListItem.buttonStyle == 1 ? 'btn btn-success' : 'btn btn-danger'))"><span class="glyphicon glyphicon-edit"></span></button>
+                    </a>
+                </span>
+            </h4>
+            <div data-ng-hide="dashboardListItem.lastUpdated == undefined">Last Updated: {{dashboardListItem.lastUpdated | date: 'longDate'}}</div>
+            <div data-ng-show="dashboardListItem.lastUpdated == undefined">Not Completed</div>
+        </div>
+    </div>
+</li>

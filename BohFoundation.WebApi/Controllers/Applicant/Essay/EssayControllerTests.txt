@@ -1,0 +1,11 @@
+﻿USER:
+Authorization: Bearer wl07mWSoqUXgAXzih1QZ6pfHGiIWCgdc365vQEozfo-eWSL37Jii5PRTKLoSpNfwXz86QRVg-ZCGQdG5-Y9PQxT4Aj_6bx70jAG5k5YU-ABc-6kJGqZBxZN_tqqoe1AruBGWYPIizV5mTHMs0FIX0ZgKNcZu3bwSC0aOIGKmsExxkv-IFvAOaInFuXnTrN-vGw1ULa6WSzY5upSJS_jTHgQj5JWdzADpdsY3EX0fcBvwmIcT4kKAaVTUgsBrLq2XNTHRAi1yDhppN5GRDFur9pf7CWcb43snp1CnyuMK4SpWxOrlTOmIxEjLTAvk5KqEbxc-7CTZfPf6AGrOpmvclXb7KvjATUZ8q4F_TK-Ba6pPm2NGZaEeRiGJv0EZk5FVBitmZBPIOAajlnC5KZhbT4EMNCsfrZAWqtehcAlpNf4FYbXJ2lbJ9G03Dr0--HdZk1cW_uqGKH3gV4uMqU1hJBxfzu2-6UO5Tx3eHRo8EwEY16O-lPydpQUgTcQT5Zq-CqJsE4g4wme-MuWtaKBi_A
+
+GET
+https://localhost:44309/api/applicant/essay/1
+Content-Type: application/json
+
+
+Post
+https://localhost:44309/api/applicant/essay/
+{essay: "This is an essay.", essayTopicId: 918309, essayPrompt: "PromptInstienc"}

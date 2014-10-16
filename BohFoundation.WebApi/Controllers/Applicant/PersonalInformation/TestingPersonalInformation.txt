@@ -1,0 +1,27 @@
+﻿Token:
+
+https://bohfoundation.azurewebsites.net/token
+User-Agent: Fiddler
+Host: bohfoundation.azurewebsites.net
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 78
+
+grant_type=password&username=thomas@bohfoundation.org&password={{PASSWORD}}
+
+LOCAL TOKENS
+
+ADMIN:
+Authorization: Bearer X0l04lRgFRIegl7VFFltu8tqIVRvzm49ClkfAK6HS1046reXs_tll-roFVbm-95-8KX5zKiACbssGr-NPk-SsMoH9RpYp0hr1SM86wtoZ2_Rab6BE5OUHbrBG2GcmyvRKcHGnPWjvek5Czd71SedC1U98U_hkisNGPtdhUAxxxUVi3pfjP3gMipF2yqbg8HRZo05ZhU-bkgfnhmrMpx9rUa8bkonhQZRT3nX4mYWSlQI_hp6xs38Bg9P3zo-I-YoVaCwA-rmz7cSeM1uVkpbrYwTSQiMOkdd7NjFC8_wYi-I1k1VXjze856gUpEEFRQn132QcTOM3BJ3hsNbOovz34iZxMBvsp1ZcedMJAlPgCHXU51hXbgaiMQpOxhLP-POCLpj_GuExRwXkTBR5kqDOjbSoskd7MJnjnSgTbmnNKcGysgyN4RbDC5ABxFPCozgrLgPK1dsJZlpPwv0NO2Z9r1khyvJvInXuoEr6z_GBUh35poh37De5HCaWFgtceWMiFasZBBloAwQZVoVDUJ6SYqLVYY-Y5pxX4jIqgsSQ3q6wjEOdLh2GhwERbFVhPqS
+
+USER:
+Authorization: Bearer j_CYL-mWAmICUibY0eiclZEGtHjt2zdI_kzSsz3YfPGqPG9mjn0_JESnfyVE7jO504h_mLM4U8AfyrMX26y2bLuKZ9if5NwjKtfm7v31vd3b8usYSKnsT4hqwoZ7OcFNuhsgwK4_X4OPfCEz7K0edaKXpXylWoQECGwmRjp2V2C_XgVRQavE-v10dPtmishCrJhdffO3jCE2wSEwwIGralzbf6o78ZkbmtWUGXFus9CiATXwQkh2pLbSjVdBaqsYj4f1hCRKKJ2_NWKdmk05aoF0k92UTWRhdpkdiFhxYKltxVGM4hD0xinJ6PL6uU1pCpQEqdNS2S5kvb1EjZ01PW-SJHrkyAwj7kyiYkSUl5QuQjmJRc7OHzU7PpVvbwwAhTaheOry2DIuY9Jm64IapkRjQIOSuWmAw4-m7KGtx7ddd8CdD0ugD2izSbWaQ1FEoinaxmpt3WhKpmEJ0JnOF2g8sGq_ltURR6Oexij8zfyN7tKXSzbNNU12-AnFsS4e1WxTh1UD7R91ERhTXu5byg
+
+GET
+https://localhost:44309/api/applicant/personalinformation
+Content-Type: application/json
+
+
+Post
+{graduatingYear:2013, birthdate:"1984-07-06T00:00:00+00:00"}
+
+{"graduatingYear":2013,"birthdate":"2014-06-27T12:54:39","lastUpdated":"2014-06-27T17:56:45.46"}

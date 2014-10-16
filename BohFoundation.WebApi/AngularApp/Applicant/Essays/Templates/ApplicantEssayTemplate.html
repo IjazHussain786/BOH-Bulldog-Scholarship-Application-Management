@@ -1,0 +1,14 @@
+﻿<applicant-nav-bar></applicant-nav-bar>
+
+<div class="container">
+    <h3><b>Topic: {{essayModel.essayPrompt}}</b></h3>
+    <h5 data-ng-hide="essayModel.revisionDateTime == undefined">Last saved to server: {{essayModel.revisionDateTime | date : 'fullDate'}}</h5>
+    <div data-ng-hide="attemptedToSave == false">
+        <div data-ng-show="successfullySaved == true" class="alert alert-success" role="alert">You successfully saved your edits.</div>
+        <div data-ng-show="successfullySaved == false" class="alert alert-danger" role="alert">There was a problem saving your edits. Please copy and paste your essay and save it on your computer. This copy <i>will</i> be lost. Please try again later.</div>
+    </div>
+    <div class="well">
+        <div data-ng-bind-html="essayModel.essay"></div>
+        <button class="btn btn-primary" data-ng-click="editEssay()"><span class="glyphicon glyphicon-edit"></span></button>
+    </div>
+</div>

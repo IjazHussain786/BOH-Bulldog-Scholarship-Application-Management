@@ -1,0 +1,41 @@
+﻿<div class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse" data-ng-click="clickToggleButton()">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/ApplicationEvaluator">Bulldog Scholarship Application Review</a>
+        </div>
+        <div collapse="navCollapsed" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li>
+                    <a href="" data-ng-click="clickLinkButton('/ApplicationEvaluator')">
+                        Applicants Remaining
+                        <span class="badge navbar-badge-size navbar-badge-black-font" data-ng-hide="getNumberOfApplicantsNotYetRated() < 1">
+                            {{getNumberOfApplicantsNotYetRated()}}
+                        </span>
+                    </a>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav">
+                <li data-ng-show="isAdmin()">
+                    <a href="" data-ng-click="clickLinkButton('/Admin')">Admin
+                        <span class="badge navbar-badge-size navbar-badge-black-font" data-ng-hide="totalAdminNotifications() < 1 || totalAdminNotifications() == undefined">
+                            {{totalAdminNotifications()}}
+                        </span>
+                    </a>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right" data-ng-hide="loggedIn()" data-ng-cloak>
+                <li><a href="" data-ng-click="clickLinkButton('/UserAccount/Register')">Register</a></li>
+                <li><a href="" data-ng-click="clickLinkButton('/UserAccount/LogIn')">Log In</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right" data-ng-show="loggedIn()" data-ng-cloak>
+                <li><a href="" data-ng-click="clickLinkButton('/ApplicationEvaluator/ManageAccount')">Hello, {{getFullName()}}!</a></li>
+                <li><a href="" data-ng-click="logOut()" data-ng-show="!remembered()">Log out</a></li>
+            </ul>
+        </div>
+    </div>
+</div>

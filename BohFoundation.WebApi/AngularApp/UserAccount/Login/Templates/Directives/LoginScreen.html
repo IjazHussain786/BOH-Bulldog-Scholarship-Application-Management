@@ -1,0 +1,25 @@
+﻿<form-title title="Bulldog Scholarship Login"></form-title>
+<div class="container body-content">
+    <form role="form" name="loginForm" class="form-horizontal" data-ui-keypress="{13:'logIn(loginForm)'}">
+        <login-fields></login-fields>
+    </form>
+    <div class="row">
+        <div class="col-sm-push-4 col-sm-2 col-xs-2">
+            <button class="btn btn-primary" data-ng-click="logIn(loginForm)" data-ng-disabled="loginForm.$invalid || processing">Login</button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-push-4 col-sm-8 col-xs-8">
+            <small>
+                <a href="/UserAccount/ResetPassword/Request">Forgot your password?</a>
+            </small>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-push-4 col-sm-8 col-xs-8">
+            <small>
+                <a href="/UserAccount/RegisterApplicant">Don't have account? Register Here.</a>
+            </small>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,46 @@
+﻿<div class="modal-header">
+    <h3 class="modal-title">Low Grade Information</h3>
+</div>
+<div class="modal-body">
+    <div class="well">
+        <div class="container">
+            <form role="form" name="lowGradeForm" class="form-horizontal">
+                <div class=" form-group">
+                    <label class="control-label" for="grade">Grade Earned</label>
+                    <div class="">
+                        <select class="form-control" name="grade" data-ng-model="lowGradeModel.grade" data-ng-options="opt for opt in grades" required></select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="yearOfHighSchool">Year of High School</label>
+                    <div class="">
+                        <select class="form-control" name="yearOfHighSchool" data-ng-model="lowGradeModel.yearOfHighSchool" data-ng-options="opt as (opt | yearOfHighSchoolEnum) for opt in yearsOfHighSchool" required></select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="classTitle">Class Name</label>
+                    <div class="">
+                        <input type="text" class="form-control" name="classTitle" data-ng-model="lowGradeModel.classTitle" placeholder="Name of the Class" required />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="wasAp">The class was AP</label>
+                    <div class="">
+                        <input type="checkbox" name="wasAp" data-ng-model="lowGradeModel.wasAp" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="explanation">Explanation</label>
+                    <div class="">
+                        <textarea class="form-control" rows="5" name="explanation" data-ng-model="lowGradeModel.explanation" placeholder="Explain why you got this grade in 280 characters or less." required maxlength="280"></textarea>
+                    </div>
+                    <p data-ng-hide="lowGradeModel.explanation == undefined || lowGradeModel.explanation.length < 200">{{lowGradeModel.explanation.length}}/280</p>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" ng-click="ok(lowGradeForm)" data-ng-disabled="lowGradeForm.$invalid">OK</button>
+    <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+</div>

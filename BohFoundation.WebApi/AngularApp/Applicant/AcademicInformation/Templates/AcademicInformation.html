@@ -1,0 +1,17 @@
+﻿<applicant-nav-bar></applicant-nav-bar>
+<div class="container body-content">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3>Academic Information<span class="pull-right"><button class="btn btn-primary btn-sm" data-ng-click="editAcademicInformationModel()" data-ng-disabled="processing"><span class="glyphicon glyphicon-edit"></span></button></span></h3>
+        </div>
+        <ul class="list-group">
+            <li class="list-group-item"><h4>Class Rank: <span class="pull-right">{{getAcademicInformationModel().classRank.classNumericalRank}} / {{getAcademicInformationModel().classRank.graduatingClassSize}}</span></h4></li>
+            <li class="list-group-item"><h4>Class Rank:<span class="pull-right">{{getAcademicInformationModel().classRank.classPercentile | percentile}}</span></h4></li>
+            <li class="list-group-item"><h4>GPA:<span class="pull-right">{{getAcademicInformationModel().gpa}}</span></h4></li>
+            <li class="list-group-item"><h4>Career Choice:<span class="pull-right">{{getAcademicInformationModel().careerChoice}}</span></h4></li>
+            <li class="list-group-item"><h4>Probable Next School:<span class="pull-right">{{getAcademicInformationModel().probableNextSchool}}</span></h4></li>
+            <li class="list-group-item"><h4>Last Updated:<span class="pull-right">{{getAcademicInformationModel().lastUpdated | date: 'longDate'}}</span></h4></li>
+            <li class="list-group-item list-group-item-success" data-ng-show="successfullySaved"><h4>You successfully saved your academic information.</h4></li>
+        </ul>
+    </div>
+</div>

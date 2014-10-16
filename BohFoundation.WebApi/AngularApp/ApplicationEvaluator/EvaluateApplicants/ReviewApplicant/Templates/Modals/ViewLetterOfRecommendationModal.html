@@ -1,0 +1,62 @@
+﻿<div class="modal-header">
+    Letter of Recommendation
+</div>
+<div class="modal-body">
+    <div class="row">
+        <div class="col-md-6 col-sm-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4>Reference General Information</h4>
+                </div>
+                <ul class="list-group">
+                    <li class="list-group-item">
+                        <b>Name</b><span class="pull-right">{{letterOfRecommendationSummary.referencePersonalInformation.name.firstName}} {{letterOfRecommendationSummary.referencePersonalInformation.name.lastName}}</span>
+                    </li>
+                    <li class="list-group-item">
+                        <b>Occupation</b>
+                        <span class="pull-right">{{letterOfRecommendationSummary.referencePersonalInformation.occupation}}</span>
+                    </li>
+                    <li class="list-group-item">
+                        <b>Relationship to Applicant</b>
+                        <span class="pull-right">{{letterOfRecommendationSummary.referenceRelationshipToApplicant}}</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-6 col-sm-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4>Reference Contact Information</h4>
+                </div>
+                <ul class="list-group">
+                    <li class="list-group-item">
+                        <b>Phone Number</b>
+                        <span class="pull-right">{{letterOfRecommendationSummary.referencePersonalInformation.phoneInformationDto.phoneNumber | phoneNumberFormat}} </span><br />
+                        <b>Best Time To Contact</b>
+                        <span class="pull-right">{{letterOfRecommendationSummary.referencePersonalInformation.phoneInformationDto.bestTimeToContactByPhone | timeOfDayEnum}} </span><br />
+                    </li>
+                    <li class="list-group-item">
+                        <b>Email</b>
+                        <span class="pull-right">{{letterOfRecommendationSummary.referencePersonalInformation.emailAddress}}</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 col-sm-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4>Letter Of Recommendation</h4>
+                </div>
+                <div class="panel-body">
+                    <p data-ng-bind-html="getLetterOfRecommendation()"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal-footer">
+    <button class="btn btn-success" ng-click="cancel()">Go Back To Main Summary</button>
+</div>

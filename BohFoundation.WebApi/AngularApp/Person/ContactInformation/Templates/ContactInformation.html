@@ -1,0 +1,29 @@
+﻿<applicant-nav-bar></applicant-nav-bar>
+<div class="container body-content">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3>Contact Information<span class="pull-right"><button class="btn btn-primary btn-sm" data-ng-click="editContactInformation()" data-ng-disabled="processing"><span class="glyphicon glyphicon-edit"></span></button></span></h3>
+        </div>
+        <ul class="list-group">
+            <li class="list-group-item">
+                <div class="row">
+                    <div class="well-lg">
+                        <h4>
+                            Address:
+                            <span class="pull-right">
+                                {{getContactInformationModel().address.streetAddress1}} <br />
+                                <span data-ng-hide="getContactInformationModel().address.streetAddress2 == '' || getContactInformationModel().address.streetAddress2 == undefined">{{getContactInformationModel().address.streetAddress2}} <br /> </span>
+                                {{getContactInformationModel().address.city}} {{getContactInformationModel().address.state}}, {{getContactInformationModel().address.zipCode}}
+                            </span>
+                        </h4>
+                    </div>
+                </div>
+            </li>
+            <li class="list-group-item"><h4>Email Address:<span class="pull-right">{{getContactInformationModel().emailAddress}}</span></h4></li>
+            <li class="list-group-item"><h4>Phone Number:<span class="pull-right">{{getContactInformationModel().phoneInformation.phoneNumber | phoneNumberFormat}}</span></h4></li>
+            <li class="list-group-item" data-ng-show="getContactInformationModel().phoneInformation.bestTimeToContactByPhone > -1"><h4>Best Time To Contact You:<span class="pull-right">{{getContactInformationModel().phoneInformation.bestTimeToContactByPhone | timeOfDayEnum}}</span></h4></li>
+            <li class="list-group-item"><h4>Last Updated:<span class="pull-right">{{getContactInformationModel().lastUpdated | date: 'longDate'}}</span></h4></li>
+            <li class="list-group-item list-group-item-success" data-ng-show="successfullySaved"><h4>You successfully saved your contact information.</h4></li>
+        </ul>
+    </div>
+</div>

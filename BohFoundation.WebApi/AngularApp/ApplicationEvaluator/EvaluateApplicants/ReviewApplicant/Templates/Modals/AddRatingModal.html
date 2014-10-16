@@ -1,0 +1,26 @@
+﻿<div class="modal-header">
+    Add Rating
+</div>
+<div class="modal-body">
+    <div class="well">
+        <form role="form" name="ratingForm" class="form-horizontal" data-ui-keypress="{13:'ok(ratingForm)'}">
+            <div class=" form-group">
+                <label class="control-label" for="rating">Rating</label>
+                <div class="">
+                    <select class="form-control" name="rating" data-ng-model="genericRatingModel.ratingEnum" data-ng-options="opt as (opt | ratingEnum) for opt in getRatingsArray()" required></select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label" for="explanation">Explanation (optional)</label>
+                <div class="">
+                    <textarea class="form-control" rows="5" name="explanation" data-ng-model="genericRatingModel.explanation" placeholder="Explain your reasoning 280 characters or less." maxlength="280"></textarea>
+                </div>
+                <p data-ng-hide="genericRatingModel.explanation == undefined || genericRatingModel.explanation.length < 200">{{genericRatingModel.explanation.length}}/280</p>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" ng-click="ok(ratingForm)" data-ng-disabled="ratingForm.$invalid">Save Rating</button>
+    <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+</div>

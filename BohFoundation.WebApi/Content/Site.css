@@ -1,0 +1,41 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 525px;
+}
+
+.width-of-password-meter {
+    max-width: 555px !important;
+}
+
+.navbar-badge-size {
+     font-size: 75em;
+}
+
+.navbar-badge-size.navbar-badge-black-font {
+    color: black;
+}
+
+.navbar-brand {
+    color: whitesmoke !important; 
+}
+
+.navbar-brand:hover {
+    color: white !important;
+}
+
+.navbar-brand:focus {
+    color: white !important;
+}

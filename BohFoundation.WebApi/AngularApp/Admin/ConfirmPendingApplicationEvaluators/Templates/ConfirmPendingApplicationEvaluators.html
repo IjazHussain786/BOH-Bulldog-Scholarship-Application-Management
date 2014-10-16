@@ -1,0 +1,23 @@
+﻿<admin-nav-bar></admin-nav-bar>
+<form-title title="Pending Application Evaluators"></form-title>
+<div class="container">
+    <ul class="list-group">
+        <li class="list-group-item" data-ng-repeat="pendingEvaluator in pendingEvaluators">
+            <div class="row">
+                <div class="well-sm">
+                    <h3>
+                        {{pendingEvaluator.firstName}} {{pendingEvaluator.lastName}} 
+                        <span class="pull-right">
+                            <span data-ng-show="pendingEvaluator.confirmed == 0">Confirmed</span>
+                            <span data-ng-show="pendingEvaluator.confirmed == 1">Rejected</span>
+                            <button class="btn btn-success" data-ng-disabled="pendingEvaluator.confirmed != 2" data-ng-click="confirmOrRejectEvaluator($index, true, false)"><span class="glyphicon glyphicon-ok"></span></button>
+                            <button class="btn btn-warning" data-ng-disabled="pendingEvaluator.confirmed != 2" data-ng-click="confirmOrRejectEvaluator($index, true, true)">Confirm and Make Admin</button>
+                            <button class="btn btn-danger" data-ng-disabled="pendingEvaluator.confirmed != 2" data-ng-click="confirmOrRejectEvaluator($index, false, false)"><span class="glyphicon glyphicon-remove"></span></button>
+                        </span>
+                    </h3>
+                    {{pendingEvaluator.emailAddress}}
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>

@@ -1,0 +1,26 @@
+﻿<div class="panel panel-default">
+    <div class="panel-heading">
+        <h4 data-ng-hide="getGraduatingYear() == 0" class="text-right">
+            <span class="pull-left">Class of {{getGraduatingYear()}} Applicants</span>
+            <button data-ng-hide="canGotoSummaryOfRatings()" class="btn btn-primary btn-sm" data-ng-click="gotoRandomApplicant()">Random Applicant</button>
+            <button data-ng-show="canGotoSummaryOfRatings()" class="btn btn-success btn-sm" data-ng-click="gotoSummaryOfRatings()">Summary Of Rated Applicants</button>
+        </h4>
+        <h4 data-ng-show="getGraduatingYear() == 0">Loading...</h4>
+    </div>
+    <table class="table table-striped">
+        <tr>
+            <th>Name</th>
+            <th>Gpa</th>
+            <th>Income Range</th>
+            <th>Your Overall Score</th>
+            <th>Look At Application</th>
+        </tr>
+        <tr data-ng-repeat="summary in getApplicantSummaries()">
+            <td>{{summary.applicantName.lastName}}, {{summary.applicantName.firstName}}</td>
+            <td>{{summary.gpa}}</td>
+            <td>{{summary.incomeRange | incomeRangeEnum}}</td>
+            <td>{{summary.yourRating | ratingEnum}}</td>
+            <td><button class="btn btn-primary btn-sm" data-ng-click="gotoApplicant($index)"><span class="glyphicon glyphicon-edit"></span></button></td>
+        </tr>
+    </table>
+</div>

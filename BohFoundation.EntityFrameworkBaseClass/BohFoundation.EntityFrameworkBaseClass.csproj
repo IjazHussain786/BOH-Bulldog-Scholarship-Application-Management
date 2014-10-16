@@ -1,0 +1,333 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D354609D-FB2D-46AE-AF5D-42F3A531F84D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BohFoundation.EntityFrameworkBaseClass</RootNamespace>
+    <AssemblyName>BohFoundation.EntityFrameworkBaseClass</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BrockAllen.MembershipReboot, Version=7.4.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\BrockAllen.MembershipReboot.7.4.1\lib\net45\BrockAllen.MembershipReboot.dll</HintPath>
+    </Reference>
+    <Reference Include="BrockAllen.MembershipReboot.Ef, Version=7.1.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\BrockAllen.MembershipReboot.Ef.7.1.1\lib\net45\BrockAllen.MembershipReboot.Ef.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.IdentityModel" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AzureDbConfiguration.cs" />
+    <Compile Include="BaseContext.cs" />
+    <Compile Include="DatabaseRootContext.cs" />
+    <Compile Include="MigrationsContextFactory.cs" />
+    <Compile Include="Migrations\201406151453435_InitialCreate.cs" />
+    <Compile Include="Migrations\201406151453435_InitialCreate.Designer.cs">
+      <DependentUpon>201406151453435_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201406271149459_AddingApplicantClasses.cs" />
+    <Compile Include="Migrations\201406271149459_AddingApplicantClasses.Designer.cs">
+      <DependentUpon>201406271149459_AddingApplicantClasses.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201406301116052_UniqueIndexSecondStreetAddress.cs" />
+    <Compile Include="Migrations\201406301116052_UniqueIndexSecondStreetAddress.Designer.cs">
+      <DependentUpon>201406301116052_UniqueIndexSecondStreetAddress.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201406301441142_AddedClassRankToAcademicInfo.cs" />
+    <Compile Include="Migrations\201406301441142_AddedClassRankToAcademicInfo.Designer.cs">
+      <DependentUpon>201406301441142_AddedClassRankToAcademicInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201406301551045_ChangedContactInformationClassName.cs" />
+    <Compile Include="Migrations\201406301551045_ChangedContactInformationClassName.Designer.cs">
+      <DependentUpon>201406301551045_ChangedContactInformationClassName.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201407021610369_AddedBoolsToIndicateIfTranscriptsAndW2sWereUploaded.cs" />
+    <Compile Include="Migrations\201407021610369_AddedBoolsToIndicateIfTranscriptsAndW2sWereUploaded.Designer.cs">
+      <DependentUpon>201407021610369_AddedBoolsToIndicateIfTranscriptsAndW2sWereUploaded.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201407031131380_SeperatingOutW2AndTranscriptIntoOwnEntities.cs" />
+    <Compile Include="Migrations\201407031131380_SeperatingOutW2AndTranscriptIntoOwnEntities.Designer.cs">
+      <DependentUpon>201407031131380_SeperatingOutW2AndTranscriptIntoOwnEntities.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201407031538513_UsersGiveNumericalClassRankAndClassSize.cs" />
+    <Compile Include="Migrations\201407031538513_UsersGiveNumericalClassRankAndClassSize.Designer.cs">
+      <DependentUpon>201407031538513_UsersGiveNumericalClassRankAndClassSize.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201407041443583_MadeTranscriptReferenceMoreAccurate.cs" />
+    <Compile Include="Migrations\201407041443583_MadeTranscriptReferenceMoreAccurate.Designer.cs">
+      <DependentUpon>201407041443583_MadeTranscriptReferenceMoreAccurate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201407041533219_AllowNullsOnAcademicInformation.cs" />
+    <Compile Include="Migrations\201407041533219_AllowNullsOnAcademicInformation.Designer.cs">
+      <DependentUpon>201407041533219_AllowNullsOnAcademicInformation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201407050029155_YearOfHighSchoolNowAnEnum.cs" />
+    <Compile Include="Migrations\201407050029155_YearOfHighSchoolNowAnEnum.Designer.cs">
+      <DependentUpon>201407050029155_YearOfHighSchoolNowAnEnum.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201407091916252_ModifyingLowGradeEntity.cs" />
+    <Compile Include="Migrations\201407091916252_ModifyingLowGradeEntity.Designer.cs">
+      <DependentUpon>201407091916252_ModifyingLowGradeEntity.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201407122336191_PreparingForEssays.cs" />
+    <Compile Include="Migrations\201407122336191_PreparingForEssays.Designer.cs">
+      <DependentUpon>201407122336191_PreparingForEssays.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201407151505219_ConcurrencyTokenNotWorkingOnEssayTopic.cs" />
+    <Compile Include="Migrations\201407151505219_ConcurrencyTokenNotWorkingOnEssayTopic.Designer.cs">
+      <DependentUpon>201407151505219_ConcurrencyTokenNotWorkingOnEssayTopic.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201407191916515_PreparingForApplicantEssays.cs" />
+    <Compile Include="Migrations\201407191916515_PreparingForApplicantEssays.Designer.cs">
+      <DependentUpon>201407191916515_PreparingForApplicantEssays.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201408011502112_AddIndexToPersonGuid.cs" />
+    <Compile Include="Migrations\201408011502112_AddIndexToPersonGuid.Designer.cs">
+      <DependentUpon>201408011502112_AddIndexToPersonGuid.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201408011629098_PrepairingForLettersOfRecommendation.cs" />
+    <Compile Include="Migrations\201408011629098_PrepairingForLettersOfRecommendation.Designer.cs">
+      <DependentUpon>201408011629098_PrepairingForLettersOfRecommendation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201408191620182_ImprovingPhoneNumberStorage.cs" />
+    <Compile Include="Migrations\201408191620182_ImprovingPhoneNumberStorage.Designer.cs">
+      <DependentUpon>201408191620182_ImprovingPhoneNumberStorage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201408191700545_ImprovingZipCodeStorage.cs" />
+    <Compile Include="Migrations\201408191700545_ImprovingZipCodeStorage.Designer.cs">
+      <DependentUpon>201408191700545_ImprovingZipCodeStorage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201408211549594_AddedPartitionKeyToLetterOfRecommendation.cs" />
+    <Compile Include="Migrations\201408211549594_AddedPartitionKeyToLetterOfRecommendation.Designer.cs">
+      <DependentUpon>201408211549594_AddedPartitionKeyToLetterOfRecommendation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201408240053349_MakingIncomeAndDegreeAttainmentEnumerables.cs" />
+    <Compile Include="Migrations\201408240053349_MakingIncomeAndDegreeAttainmentEnumerables.Designer.cs">
+      <DependentUpon>201408240053349_MakingIncomeAndDegreeAttainmentEnumerables.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201408301109512_PreparingForExtracurricularActivities.cs" />
+    <Compile Include="Migrations\201408301109512_PreparingForExtracurricularActivities.Designer.cs">
+      <DependentUpon>201408301109512_PreparingForExtracurricularActivities.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201408301129275_ModifyingExtracurricularActivities.cs" />
+    <Compile Include="Migrations\201408301129275_ModifyingExtracurricularActivities.Designer.cs">
+      <DependentUpon>201408301129275_ModifyingExtracurricularActivities.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201408301759355_RethinkingExtracurriculars.cs" />
+    <Compile Include="Migrations\201408301759355_RethinkingExtracurriculars.Designer.cs">
+      <DependentUpon>201408301759355_RethinkingExtracurriculars.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201409081240192_AddingApplicantMetadata.cs" />
+    <Compile Include="Migrations\201409081240192_AddingApplicantMetadata.Designer.cs">
+      <DependentUpon>201409081240192_AddingApplicantMetadata.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201409091411442_FinalizedButNotCompletedApplicant.cs" />
+    <Compile Include="Migrations\201409091411442_FinalizedButNotCompletedApplicant.Designer.cs">
+      <DependentUpon>201409091411442_FinalizedButNotCompletedApplicant.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201409221709309_AddingAnApplicantRating.cs" />
+    <Compile Include="Migrations\201409221709309_AddingAnApplicantRating.Designer.cs">
+      <DependentUpon>201409221709309_AddingAnApplicantRating.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201409251301541_MadeRatingsMoreGenericAndFilledOutTheRestOfTheDomain.cs" />
+    <Compile Include="Migrations\201409251301541_MadeRatingsMoreGenericAndFilledOutTheRestOfTheDomain.Designer.cs">
+      <DependentUpon>201409251301541_MadeRatingsMoreGenericAndFilledOutTheRestOfTheDomain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201409251330040_TranscriptMatchesDatabaseBoolInMetadata.cs" />
+    <Compile Include="Migrations\201409251330040_TranscriptMatchesDatabaseBoolInMetadata.Designer.cs">
+      <DependentUpon>201409251330040_TranscriptMatchesDatabaseBoolInMetadata.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201409251331432_TranscriptDoesNotMatchDatabaseValuesInMetadata.cs" />
+    <Compile Include="Migrations\201409251331432_TranscriptDoesNotMatchDatabaseValuesInMetadata.Designer.cs">
+      <DependentUpon>201409251331432_TranscriptDoesNotMatchDatabaseValuesInMetadata.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201409252156367_ChangedRatingToRatingEnumInGenericRating.cs" />
+    <Compile Include="Migrations\201409252156367_ChangedRatingToRatingEnumInGenericRating.Designer.cs">
+      <DependentUpon>201409252156367_ChangedRatingToRatingEnumInGenericRating.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201409291302089_AddingPartitionAndRowKeysToDb.cs" />
+    <Compile Include="Migrations\201409291302089_AddingPartitionAndRowKeysToDb.Designer.cs">
+      <DependentUpon>201409291302089_AddingPartitionAndRowKeysToDb.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201410021250477_FixingBugGettingRatings.cs" />
+    <Compile Include="Migrations\201410021250477_FixingBugGettingRatings.Designer.cs">
+      <DependentUpon>201410021250477_FixingBugGettingRatings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="DomainDbModelBuilder.cs" />
+    <Compile Include="MRExtensions\MembershipRebootDbModelBuilderExtensions.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201406151453435_InitialCreate.resx">
+      <DependentUpon>201406151453435_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201406271149459_AddingApplicantClasses.resx">
+      <DependentUpon>201406271149459_AddingApplicantClasses.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201406301116052_UniqueIndexSecondStreetAddress.resx">
+      <DependentUpon>201406301116052_UniqueIndexSecondStreetAddress.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201406301441142_AddedClassRankToAcademicInfo.resx">
+      <DependentUpon>201406301441142_AddedClassRankToAcademicInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201406301551045_ChangedContactInformationClassName.resx">
+      <DependentUpon>201406301551045_ChangedContactInformationClassName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201407021610369_AddedBoolsToIndicateIfTranscriptsAndW2sWereUploaded.resx">
+      <DependentUpon>201407021610369_AddedBoolsToIndicateIfTranscriptsAndW2sWereUploaded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201407031131380_SeperatingOutW2AndTranscriptIntoOwnEntities.resx">
+      <DependentUpon>201407031131380_SeperatingOutW2AndTranscriptIntoOwnEntities.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201407031538513_UsersGiveNumericalClassRankAndClassSize.resx">
+      <DependentUpon>201407031538513_UsersGiveNumericalClassRankAndClassSize.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201407041443583_MadeTranscriptReferenceMoreAccurate.resx">
+      <DependentUpon>201407041443583_MadeTranscriptReferenceMoreAccurate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201407041533219_AllowNullsOnAcademicInformation.resx">
+      <DependentUpon>201407041533219_AllowNullsOnAcademicInformation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201407050029155_YearOfHighSchoolNowAnEnum.resx">
+      <DependentUpon>201407050029155_YearOfHighSchoolNowAnEnum.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201407091916252_ModifyingLowGradeEntity.resx">
+      <DependentUpon>201407091916252_ModifyingLowGradeEntity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201407122336191_PreparingForEssays.resx">
+      <DependentUpon>201407122336191_PreparingForEssays.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201407151505219_ConcurrencyTokenNotWorkingOnEssayTopic.resx">
+      <DependentUpon>201407151505219_ConcurrencyTokenNotWorkingOnEssayTopic.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201407191916515_PreparingForApplicantEssays.resx">
+      <DependentUpon>201407191916515_PreparingForApplicantEssays.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201408011502112_AddIndexToPersonGuid.resx">
+      <DependentUpon>201408011502112_AddIndexToPersonGuid.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201408011629098_PrepairingForLettersOfRecommendation.resx">
+      <DependentUpon>201408011629098_PrepairingForLettersOfRecommendation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201408191620182_ImprovingPhoneNumberStorage.resx">
+      <DependentUpon>201408191620182_ImprovingPhoneNumberStorage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201408191700545_ImprovingZipCodeStorage.resx">
+      <DependentUpon>201408191700545_ImprovingZipCodeStorage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201408211549594_AddedPartitionKeyToLetterOfRecommendation.resx">
+      <DependentUpon>201408211549594_AddedPartitionKeyToLetterOfRecommendation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201408240053349_MakingIncomeAndDegreeAttainmentEnumerables.resx">
+      <DependentUpon>201408240053349_MakingIncomeAndDegreeAttainmentEnumerables.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201408301109512_PreparingForExtracurricularActivities.resx">
+      <DependentUpon>201408301109512_PreparingForExtracurricularActivities.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201408301129275_ModifyingExtracurricularActivities.resx">
+      <DependentUpon>201408301129275_ModifyingExtracurricularActivities.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201408301759355_RethinkingExtracurriculars.resx">
+      <DependentUpon>201408301759355_RethinkingExtracurriculars.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201409081240192_AddingApplicantMetadata.resx">
+      <DependentUpon>201409081240192_AddingApplicantMetadata.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201409091411442_FinalizedButNotCompletedApplicant.resx">
+      <DependentUpon>201409091411442_FinalizedButNotCompletedApplicant.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201409221709309_AddingAnApplicantRating.resx">
+      <DependentUpon>201409221709309_AddingAnApplicantRating.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201409251301541_MadeRatingsMoreGenericAndFilledOutTheRestOfTheDomain.resx">
+      <DependentUpon>201409251301541_MadeRatingsMoreGenericAndFilledOutTheRestOfTheDomain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201409251330040_TranscriptMatchesDatabaseBoolInMetadata.resx">
+      <DependentUpon>201409251330040_TranscriptMatchesDatabaseBoolInMetadata.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201409251331432_TranscriptDoesNotMatchDatabaseValuesInMetadata.resx">
+      <DependentUpon>201409251331432_TranscriptDoesNotMatchDatabaseValuesInMetadata.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201409252156367_ChangedRatingToRatingEnumInGenericRating.resx">
+      <DependentUpon>201409252156367_ChangedRatingToRatingEnumInGenericRating.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201409291302089_AddingPartitionAndRowKeysToDb.resx">
+      <DependentUpon>201409291302089_AddingPartitionAndRowKeysToDb.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201410021250477_FixingBugGettingRatings.resx">
+      <DependentUpon>201410021250477_FixingBugGettingRatings.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BohFoundation.Domain\BohFoundation.Domain.csproj">
+      <Project>{16160b03-bf31-4e20-846a-390e647bdc81}</Project>
+      <Name>BohFoundation.Domain</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

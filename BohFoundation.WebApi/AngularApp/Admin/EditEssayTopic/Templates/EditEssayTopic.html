@@ -1,0 +1,30 @@
+﻿<admin-nav-bar></admin-nav-bar>
+<div class="container" style="margin-top: -5px">
+    <div class="well">
+        <div class="list-group">
+            <li class="list-group-item" data-ng-repeat="topic in getEssayTopics() | filter:search:strict">
+                <div class="row">
+                    <div class="well-sm">
+                        <h4>{{topic.titleOfEssay}}
+                            <span class="pull-right">
+                                <button class="btn btn-primary" data-ng-click="editEssayTopic($index)"><span class="glyphicon glyphicon-edit"></span></button>
+                                <button class="btn btn-info" data-ng-click="addYearToEssayTopic(topic.id)" data-ng-hide="yearToAddOrDelete == undefined">Add Year {{yearToAddOrDelete}}</button>
+                                <button class="btn btn-warning" data-ng-click="deleteYearFromEssayTopic(topic.id)" data-ng-hide="yearToAddOrDelete == undefined">Delete Year {{yearToAddOrDelete}}</button>
+                            </span>
+                        </h4>
+                        {{topic.essayPrompt}}<br/>
+                        Last Edited by: {{topic.lastRevisionAuthor.firstName}} {{topic.lastRevisionAuthor.lastName}} on {{topic.revisionDateTime | date : 'fullDate'}}<br/>
+                        <div data-ng-hide="topic.forWhatGraduatingYears.length == 0">
+                            For Graduating Classes: {{topic.forWhatGraduatingYears}}
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <button class="btn btn-primary" ng-click="addNewEssayTopic()">Add new essay topic</button>
+    <span class="pull-right">Year to add or delete: <input type="number" data-ng-model="yearToAddOrDelete" /></span><br/>
+    <span class="pull-right">Filter by graduating class: <input type="number" data-ng-model="search.forWhatGraduatingYears"/></span>
+</div>

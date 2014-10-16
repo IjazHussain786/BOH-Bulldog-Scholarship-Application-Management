@@ -1,0 +1,44 @@
+﻿<div class="modal-header">
+    {{essaySummary.titleOfEssay}}
+</div>
+<div class="modal-body">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4>Prompt: {{essaySummary.essayPrompt}}</h4>
+        </div>
+        <div class="panel-body">
+            <p data-ng-bind-html="getEssay()"></p>
+        </div>
+        <div class="panel-footer">
+            Essay Length: {{essaySummary.essayCharacterLength}} Characters
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4>Your Rating</h4>
+        </div>
+        <div class="panel-body">
+            <div class="well-lg">
+                <form role="form" name="ratingForm" class="form-horizontal" data-ui-keypress="{13:'ok(ratingForm)'}">
+                    <div class="form-group">
+                        <label class="control-label" for="rating">Rating</label>
+                        <div class="">
+                            <select class="form-control" name="rating" data-ng-model="essaySummary.yourRating.ratingEnum" data-ng-options="opt as (opt | ratingEnum) for opt in getRatingsArray()" required></select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label" for="explanation">Explanation (optional)</label>
+                        <div class="">
+                            <textarea class="form-control" rows="5" name="explanation" data-ng-model="essaySummary.yourRating.explanation" placeholder="Explain your reasoning 280 characters or less." maxlength="280"></textarea>
+                        </div>
+                        <p data-ng-hide="essaySummary.yourRating.explanation == undefined || essaySummary.yourRating.explanation.length < 200">{{essaySummary.yourRating.explanation}}/280</p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" ng-click="ok(ratingForm)" data-ng-disabled="ratingForm.$invalid">Save Essay Rating</button>
+    <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+</div>

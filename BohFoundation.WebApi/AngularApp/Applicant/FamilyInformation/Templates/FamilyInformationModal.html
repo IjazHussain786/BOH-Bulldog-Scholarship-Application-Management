@@ -1,0 +1,33 @@
+﻿<div class="modal-header">
+    Family Information
+</div>
+<div class="modal-body">
+    <div class="well">
+        <div class="container">
+            <form role="form" name="familyInformationForm" class="form-horizontal" data-ui-keypress="{13:'ok(familyInformationForm)'}">
+                <div class="form-group">
+                    <label class="control-label" for="numberOfPeopleInHousehold">Number of People In Household</label>
+                    <div class="">
+                        <input type="number" class="form-control" name="numberOfPeopleInHousehold" data-ng-model="familyInformationModel.numberOfPeopleInHousehold" placeholder="Number of People In Household" required min="0" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="yearlyHouseholdIncomeRange">Yearly Household Income</label>
+                    <div class="">
+                        <select class="form-control" name="yearlyHouseholdIncomeRange" data-ng-model="familyInformationModel.yearlyHouseholdIncomeRange" data-ng-options="opt as (opt | incomeRangeEnum) for opt in yearlyHouseholdIncomeRange" required></select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="highestAttainedDegreeInHome">Most Advanced Degree in Household</label>
+                    <div class="">
+                        <select class="form-control" name="highestAttainedDegreeInHome" data-ng-model="familyInformationModel.highestAttainedDegreeInHome" data-ng-options="opt as (opt | educationalDegreesEnum) for opt in highestAttainedDegreeInHome" required></select>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" ng-click="ok(familyInformationForm)" data-ng-disabled="familyInformationForm.$invalid">Save Family Information</button>
+    <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+</div>

@@ -1,0 +1,16 @@
+﻿<div class="container">
+    <div class="col-sm-push-4 col-sm-8 col-xs-8">
+        <h4>Confirm Your Email Address</h4>
+    </div>
+</div>
+<div class="container body-content">
+    <br />
+    <form role="form" name="confirmEmailForm" class="form-horizontal" data-ui-keypress="{13:'verifyEmail(confirmEmailForm)'}">
+        <login-fields></login-fields>
+    </form>
+    <div class="row">
+        <div class="col-sm-push-4 col-sm-2 col-xs-2">
+            <button class="btn btn-primary" data-ng-click="verifyEmail(confirmEmailForm)" data-ng-disabled="confirmEmailForm.$invalid || processing">Confirm Email</button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,33 @@
+﻿<evaluate-applicants-nav-bar></evaluate-applicants-nav-bar>
+<div class="container">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4 data-ng-hide="getTop5Applicants().length == 0">
+                Top Applicants
+            </h4>
+            <h4 data-ng-show="getTop5Applicants().length == 0">Loading...</h4>
+        </div>
+        <accordion close-others="false">
+            <div data-ng-repeat="summary in getTop5Applicants()">
+                <accordion-group data-ng-hide="summary.averageRating == null">
+                    <accordion-heading>
+                        <b>{{summary.applicantsName.firstName}} {{summary.applicantsName.lastName}}</b> has an average rating of <b>{{summary.averageRating | ratingEnum}}</b>
+                    </accordion-heading>
+                    <table class="table table-striped">
+                        <tr>
+                            <th>Evaluator</th>
+                            <th>Rating</th>
+                            <th>Explanation</th>
+                        </tr>
+                        <tr data-ng-repeat="individualRating in summary.applicantEvaluatorsRatings">
+                            <td data-ng-hide="individualRating.overallRating.ratingEnum == null">{{individualRating.applicantEvaluatorsName.firstName}}, {{individualRating.applicantEvaluatorsName.lastName}}</td>
+                            <td data-ng-hide="individualRating.overallRating.ratingEnum == null">{{individualRating.overallRating.ratingEnum | ratingEnum}}</td>
+                            <td data-ng-hide="individualRating.overallRating.ratingEnum == null">{{individualRating.overallRating.explanation}}</td>
+                        </tr>
+                    </table>
+                    <span class="pull-right">View Application <button data-ng-click="gotoApplicant($index)" class="glyphicon glyphicon-open btn btn-primary btn-sm"></button></span>
+                </accordion-group>
+            </div>
+        </accordion>
+    </div>
+</div>

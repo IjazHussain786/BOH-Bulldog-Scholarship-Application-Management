@@ -1,0 +1,51 @@
+﻿<applicant-nav-bar></applicant-nav-bar>
+<div class="container" style="margin-top: -5px">
+    <div class="well">
+        <ul class="list-group">
+            <li data-ng-hide="getDeadlineDate() == undefined" class="list-group-item list-group-item-heading">
+                You must have this application finalized by <b>{{getDeadlineDate() | date : 'medium'}}</b>. You will be able to finalize your application after all parts of the application are completed, including having letters of recommendation submitted by references. The website will not accept any new information after the deadline day and will deny you access to any of your application information. 
+            </li>
+            <div>
+                <applicant-dashboard-list-item dashboard-item="getReferenceItem()" />
+            </div>
+            <div>
+                <applicant-dashboard-list-item dashboard-item="getPersonalInfoDashboardItem()" />
+            </div>
+            <div>
+                <applicant-dashboard-list-item dashboard-item="getContactInfoDashboardItem()" />
+            </div>
+            <div>
+                <applicant-dashboard-list-item dashboard-item="getFamilyInformationDashboardItem()" />
+            </div>
+            <div>
+                <applicant-dashboard-list-item dashboard-item="getAcademicInformationDashboardItem()" />
+            </div>
+            <div data-ng-hide="getHideLowGrade()">
+                <applicant-dashboard-list-item dashboard-item="getLowGradeDashboardItem()" />
+            </div>
+            <div>
+                <applicant-dashboard-list-item dashboard-item="getExtracurricularActivitiesItem()" />
+            </div>
+            <div data-ng-repeat="essayDashboardItem in getEssayDashboardInputModels()">
+                <applicant-dashboard-list-item dashboard-item="essayDashboardItem" />
+            </div>
+            <div>
+                <applicant-dashboard-list-item dashboard-item="getTransciptUploadedDashboardItem()" />
+            </div>
+            <div data-ng-show="canFinalizeApplication()">
+                <li class="list-group-item list-group-item-success">
+                    <div class="row">
+                        <div class="well-sm">
+                            <h4>
+                                Finalize Application
+                                <span class="pull-right">
+                                    <button class="btn btn-success" data-ng-click="finalizeApplication()"><span class="glyphicon glyphicon-ok"></span></button>
+                                </span>
+                            </h4>
+                        </div>
+                    </div>
+                </li>
+            </div>
+        </ul>
+    </div>
+</div>

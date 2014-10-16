@@ -1,0 +1,45 @@
+﻿<div class="modal-header">
+    Academic Information
+</div>
+<div class="modal-body">
+    <div class="well">
+        <div class="container">
+            <form role="form" name="academicInformationForm" class="form-horizontal" data-ui-keypress="{13:'ok(academicInformationForm)'}">
+                <div class="form-group">
+                    <label class="control-label" for="gpa">High School GPA</label>
+                    <div class="">
+                        <input type="number" class="form-control" name="gpa" data-ng-model="academicInformationModel.gpa" placeholder="High School GPA" required max="4" min="0" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="careerChoice">Career Choice</label>
+                    <div class="">
+                        <input type="text" class="form-control" name="careerChoice" data-ng-model="academicInformationModel.careerChoice" placeholder="Career Choice" required />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="probableNextSchool">Probable Next School</label>
+                    <div class="">
+                        <input type="text" class="form-control" name="probableNextSchool" data-ng-model="academicInformationModel.probableNextSchool" placeholder="Probable Next School" required />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="classNumericalRank">Class Numerical Rank</label>
+                    <div class="">
+                        <input type="number" class="form-control" name="classNumericalRank" data-ng-model="academicInformationModel.classRank.classNumericalRank" placeholder="Class Rank" required />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="graduatingClassSize">Graduating Class Size</label>
+                    <div class="">
+                        <input type="number" class="form-control" name="graduatingClassSize" data-ng-model="academicInformationModel.classRank.graduatingClassSize" placeholder="Graduating Class Size" required />
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" ng-click="ok(academicInformationForm)" data-ng-disabled="academicInformationForm.$invalid">Save Academic Information</button>
+    <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+</div>

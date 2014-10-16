@@ -1,0 +1,35 @@
+﻿<form-title title="Application Evaluator Registration"></form-title>
+<div class="container body-content">
+    <form role="form" name="registerForm" class="form-horizontal" data-ui-keypress="{13:'submitRegistration(registerForm)'}">
+        <div class="form-group">
+            <label class="col-sm-4 control-label">First Name</label>
+            <div class="col-sm-8">
+                <p class="form-control-static">{{registerInputModel.firstName}}</p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-4 control-label">Last Name</label>
+            <div class="col-sm-8">
+                <p class="form-control-static">{{registerInputModel.lastName}}</p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-4 control-label">Email Address</label>
+            <div class="col-sm-8">
+                <p class="form-control-static">{{registerInputModel.emailAddress}}</p>
+            </div>
+        </div>
+        <div data-ng-class="(passwordScore.score) > 2 ? 'form-group has-feedback has-success' : 'form-group has-feedback'">
+            <label class=" col-sm-4 control-label" for="password">Password</label>
+            <div class="col-sm-8" style="max-width: 310px">
+                <input type="password" class="form-control" id="password" data-ng-model="registerInputModel.password" placeholder="Password" required data-ng-change="checkScore(registerInputModel.password)" popover="{{goodPasswordExplain}}" popover-trigger="focus" popover-placement="top" />
+                <password-field-and-meter></password-field-and-meter>
+            </div>
+        </div>
+    </form>
+    <div class="row">
+        <div class="col-sm-push-4 col-sm-2 col-xs-2">
+            <button class="btn btn-primary" data-ng-click="submitRegistration(registerForm)" data-ng-disabled="registerForm.$invalid || processing || passwordScore.score < 3">Register</button>
+        </div>
+    </div>
+</div>

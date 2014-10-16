@@ -1,0 +1,7 @@
+Step One: GOTO D49E4466995642C1887C591BB87FDE74/{{you email address}}/{{Your First Name}}/{{Your Last Name}} and register
+Step Two: Add Admin and ApplicationEvaluator claims while deleting Pending claim
+
+https://bohfoundation.org/Claims/Admin
+https://bohfoundation.org/Claims/ApplicationEvaluator
+
+Step Three: Add an entry for both person, name, applicationevalutor and admin in each of their respective tables in my portion of the db. 

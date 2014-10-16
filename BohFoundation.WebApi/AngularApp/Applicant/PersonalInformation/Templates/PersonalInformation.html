@@ -1,0 +1,32 @@
+﻿<applicant-nav-bar></applicant-nav-bar>
+<form-title title="Personal Information"></form-title>
+<div class="container body-content">
+    <form role="form" name="personalInformationForm" class="form-horizontal">
+        <last-updated-static-field last-updated="applicantPersonalInformation.lastUpdated"></last-updated-static-field>
+        <div class="form-group">
+            <label class="col-sm-4 control-label">Name</label>
+            <div class="col-sm-8">
+                <p class="form-control-static">{{fullName}}</p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-4 control-label">Graduating Year</label>
+            <div class="col-sm-8">
+                <p class="form-control-static">{{applicantPersonalInformation.graduatingYear}}</p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-4 control-label">Birth date</label>
+            <div class="col-sm-8">
+                <div style="display:inline-block; min-height:290px;">
+                    <datepicker ng-model="applicantPersonalInformation.birthdate" max-date="datePickerSettings.maxDate" init-date="datePickerSettings.initialDate" year-range="datePickerSettings.yearRange" show-weeks="datePickerSettings.showWeeks" class="well well-sm"></datepicker>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="row">
+        <div class="col-sm-push-4 col-sm-2 col-xs-2">
+            <button class="btn btn-primary" data-ng-click="postApplicantPersonalInformation(personalInformationForm)" data-ng-disabled="personalInformationForm.$invalid || processing || applicantPersonalInformation.birthdate == undefined">Save</button>
+        </div>
+    </div>
+</div>

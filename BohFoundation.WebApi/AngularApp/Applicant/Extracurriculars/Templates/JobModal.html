@@ -1,0 +1,34 @@
+﻿<div class="modal-header">
+    Job Information
+</div>
+<div class="modal-body">
+    <div class="well">
+        <div class="container">
+            <form role="form" name="jobInformationForm" class="form-horizontal">
+                <div class="form-group">
+                    <label class="control-label" for="employer">Your Current Employer</label>
+                    <div class="">
+                        <input type="text" class="form-control" name="employer" data-ng-model="jobModel.employer" placeholder="The company that employs you." required />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="position">Position</label>
+                    <div class="">
+                        <input type="text" class="form-control" name="position" data-ng-model="jobModel.position" placeholder="Your position." required />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="shortSummaryOfWorkResponsibilities">A very short summery of your responsibilities</label>
+                    <div class="">
+                        <textarea class="form-control" rows="5" name="shortSummaryOfWorkResponsibilities" data-ng-model="jobModel.shortSummaryOfWorkResponsibilities" placeholder="Explain what you do at your work in 280 characters or less." required maxlength="280"></textarea>
+                    </div>
+                    <p data-ng-hide="jobModel.shortSummaryOfWorkResponsibilities == undefined || jobModel.shortSummaryOfWorkResponsibilities.length < 200">{{jobModel.shortSummaryOfWorkResponsibilities.length}}/280</p>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" ng-click="ok(jobInformationForm)" data-ng-disabled="jobInformationForm.$invalid">Save Job Information</button>
+    <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+</div>

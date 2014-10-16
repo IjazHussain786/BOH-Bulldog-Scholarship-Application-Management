@@ -1,0 +1,14 @@
+﻿USER:
+Authorization: Bearer tHq3m8-lDkvGVvqSepUCsALX4YRk0cak5lAOAovOomDwQOduRdC59jBSzZZg7o-R9rOV_DLBHzqek4bHPlbctT3oIXsanRUWL5IXdWedOGBn0h_BGd7u8zayf7A9ugbdVftkvX3_Yv3RrJ59px_vp9YO1FbS0pYkPYhii3LOyw6M3KUBACkZlAt3l7TtS2LTpc1uT49I6NuAB7OLAZkLsfBCO_lzzCYy1AO3n_hHs_qscl3CWs3MfxYAJPYmyasWsg4wL1e-GIxj7eWrCQ6dKR4A4JS0JGxrgIiZyRysyLZ_W71EmQ8wvedfk4d0989HqPUxUrSa3BNren_-rxW1zgN0WVlnpegUAbQGh1w2d1chjGWcd5fhxsV8Ne0mGfhguMae2N5MnRG9U_X1DPMH_vibnAlitMbY4wfTjHbl7y_ECaQwtru1OMdpitirIh4kBVn1GikRzj9tjWEQ8JUpGMFElLlLXYYB7OxM1IbHiI9Anzsg72ZPZVpJ3XnpEOrUHdA264mxrOWILH0XOFNmnQ
+
+GET
+https://localhost:44309/api/applicant/references
+Content-Type: application/json
+
+
+POST
+https://localhost:44309/api/applicant/references
+Content-Type: application/json
+
+//check to see if a new person was made via the email not being right. This would not be a good result. Perhaps we could enfore all lowercase on the clientside.  
+{salutation:"Hi Robot,", signature: "Tom", messageParagraph: "I was hoping that you would be a reference for me for the Bulldog Scholarship.", referenceEmail: "THOMAS@bohfoundation.org", relationshipToReference: "He is me!"}

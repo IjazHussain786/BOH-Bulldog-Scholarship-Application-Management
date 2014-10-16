@@ -1,0 +1,852 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{A077C5CF-B027-4581-AB62-3D9CD4090293}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BohFoundation.WebApi</RootNamespace>
+    <AssemblyName>BohFoundation.WebApi</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort>44309</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TypeScriptToolsVersion>1.0</TypeScriptToolsVersion>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Antlr3.Runtime, Version=3.5.0.2, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights.Telemetry.Services">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Telemetry.Services.0.7.1.0\lib\net35\Microsoft.ApplicationInsights.Telemetry.Services.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights.Telemetry.Web">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Telemetry.Services.0.7.1.0\lib\net35\Microsoft.ApplicationInsights.Telemetry.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Data.Edm, Version=5.6.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Data.Edm.5.6.0\lib\net40\Microsoft.Data.Edm.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Data.OData, Version=5.6.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Data.OData.5.6.0\lib\net40\Microsoft.Data.OData.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Data.Services.Client, Version=5.6.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Data.Services.Client.5.6.0\lib\net40\Microsoft.Data.Services.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.Owin.3.0.0\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.3.0.0\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.Owin.Security.3.0.0\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.3.0.0\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAzure.Configuration, Version=1.8.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.WindowsAzure.ConfigurationManager.1.8.0.0\lib\net35-full\Microsoft.WindowsAzure.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAzure.Storage, Version=4.2.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\WindowsAzure.Storage.4.2.1\lib\net40\Microsoft.WindowsAzure.Storage.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.6.0.5\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Ninject">
+      <HintPath>..\packages\Ninject.3.2.2.0\lib\net45-full\Ninject.dll</HintPath>
+    </Reference>
+    <Reference Include="Ninject.Web.Common, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Ninject.Web.Common.3.2.3.0\lib\net45-full\Ninject.Web.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Ninject.Web.Mvc">
+      <HintPath>..\packages\Ninject.MVC3.3.2.1.0\lib\net45-full\Ninject.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.IdentityModel" />
+    <Reference Include="System.IdentityModel.Services" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.2\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Spatial, Version=5.6.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Spatial.5.6.0\lib\net40\System.Spatial.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.2\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=5.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.2\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.Owin, Version=5.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Owin.5.2.2\lib\net45\System.Web.Http.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.2\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.2\lib\net45\System.Web.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.2\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.2\lib\net45\System.Web.WebPages.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.2\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.2\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="WebActivatorEx, Version=2.0.0.0, Culture=neutral, PublicKeyToken=7b26dc2a43f6a0d4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\WebActivatorEx.2.0.5\lib\net40\WebActivatorEx.dll</HintPath>
+    </Reference>
+    <Reference Include="WebApiContrib.IoC.Ninject">
+      <HintPath>..\packages\WebApiContrib.IoC.Ninject.0.9.3.0\lib\net40\WebApiContrib.IoC.Ninject.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease, Version=1.6.5135.21930, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="AngularAppSpec\ApplicationEvaluator\Dashboard\Spec\Controllers\" />
+    <Folder Include="Areas\HelpPage\App_Start\" />
+    <Folder Include="Areas\HelpPage\Controllers\" />
+    <Folder Include="Areas\HelpPage\ModelDescriptions\" />
+    <Folder Include="Areas\HelpPage\Models\" />
+    <Folder Include="Areas\HelpPage\SampleGeneration\" />
+    <Folder Include="Areas\HelpPage\Views\Help\DisplayTemplates\" />
+    <Folder Include="Areas\HelpPage\Views\Shared\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\NinjectWebCommon.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\Admin\AdminNotificationController.cs" />
+    <Compile Include="Controllers\Admin\EditEssayTopic\EssayTopicController.cs" />
+    <Compile Include="Controllers\Admin\EditEssayTopic\ModifyEssayTopicGraduatingYearController.cs" />
+    <Compile Include="Controllers\Admin\InviteConfirmApplicationEvaluator\ConfirmApplicationEvaluatorController.cs" />
+    <Compile Include="Controllers\Admin\InviteConfirmApplicationEvaluator\GetPendingApplicationEvaluatorsController.cs" />
+    <Compile Include="Controllers\Admin\InviteConfirmApplicationEvaluator\InviteApplicationEvaluatorController.cs" />
+    <Compile Include="Controllers\Admin\LetterOfRecommendation\GetLetterOfRecommendationGuidController.cs" />
+    <Compile Include="Controllers\Applicant\AcademicInformation\AcademicInformationController.cs" />
+    <Compile Include="Controllers\Applicant\AcademicInformation\LowGradeInformationController.cs" />
+    <Compile Include="Controllers\Applicant\ApplicantNotificationController.cs" />
+    <Compile Include="Controllers\Applicant\Essay\EssayController.cs" />
+    <Compile Include="Controllers\Applicant\Extracurriculars\ExtracurricularController.cs" />
+    <Compile Include="Controllers\Applicant\FamilyInformation\FamilyInformationController.cs" />
+    <Compile Include="Controllers\Applicant\Finalize\FinalizeApplicationController.cs" />
+    <Compile Include="Controllers\Applicant\PersonalInformation\ApplicantPersonalInformationController.cs" />
+    <Compile Include="Controllers\Applicant\References\ApplicantReferenceController.cs" />
+    <Compile Include="Controllers\Applicant\Transcript\TranscriptUploadController.cs" />
+    <Compile Include="Controllers\ApplicationEvaluator\EvaluatingApplicants\DisplayApplication\GetAcademicInformationController.cs" />
+    <Compile Include="Controllers\ApplicationEvaluator\EvaluatingApplicants\DisplayApplication\GetCollectionOfEssaysAndLettersOfRecommendationsController.cs" />
+    <Compile Include="Controllers\ApplicationEvaluator\EvaluatingApplicants\ApplicationEvaluatorEssayController.cs" />
+    <Compile Include="Controllers\ApplicationEvaluator\EvaluatingApplicants\DisplayApplication\GetExtracurricularActivitiesController.cs" />
+    <Compile Include="Controllers\ApplicationEvaluator\EvaluatingApplicants\DisplayApplication\GetGeneralInformationController.cs" />
+    <Compile Include="Controllers\ApplicationEvaluator\EvaluatingApplicants\DisplayApplication\GetLetterOfRecommendationController.cs" />
+    <Compile Include="Controllers\ApplicationEvaluator\EvaluatingApplicants\GetListOfApplicantsController.cs" />
+    <Compile Include="Controllers\ApplicationEvaluator\EvaluatingApplicants\RateApplicant\FinalRatingController.cs" />
+    <Compile Include="Controllers\ApplicationEvaluator\EvaluatingApplicants\RateApplicant\FirstImpressionsRatingController.cs" />
+    <Compile Include="Controllers\ApplicationEvaluator\EvaluatingApplicants\Transcript\GetTranscriptUriController.cs" />
+    <Compile Include="Controllers\ApplicationEvaluator\EvaluatingApplicants\Transcript\ConfirmTranscriptController.cs" />
+    <Compile Include="Controllers\ApplicationEvaluator\EvaluatingApplicants\RatingSummary\RatingSummariesController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\Person\ContactInformation\ContactInformationController.cs" />
+    <Compile Include="Controllers\Reference\Anonymous\AnonymousLetterOfRecommendationController.cs" />
+    <Compile Include="Controllers\Reference\Anonymous\AnonymousLetterOfRecommendationInformationController.cs" />
+    <Compile Include="Controllers\UserAccount\ChangeEmailController.cs" />
+    <Compile Include="Controllers\UserAccount\ChangePasswordController.cs" />
+    <Compile Include="Controllers\UserAccount\ChangePasswordFromKeyController.cs" />
+    <Compile Include="Controllers\UserAccount\RegisterApplicantController.cs" />
+    <Compile Include="Controllers\UserAccount\RegisterApplicationEvaluatorController.cs" />
+    <Compile Include="Filters\CheckModelForNullAttribute.cs" />
+    <Compile Include="Filters\RequireAdminAttribute.cs" />
+    <Compile Include="Filters\RequireApplicantAttribute.cs" />
+    <Compile Include="Filters\RequireApplicationEvaluatorAttribute.cs" />
+    <Compile Include="Filters\RequireHttpsAttribute.cs" />
+    <Compile Include="Filters\ValidateModelAttribute.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ServerMessage.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Providers\CustomOAuthProvider.cs" />
+    <Compile Include="Startup.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="AngularApp\Admin\ConfirmPendingApplicationEvaluators\Templates\ConfirmPendingApplicationEvaluators.html" />
+    <Content Include="AngularApp\Admin\Dashboard\Templates\AdminDashboard.html" />
+    <Content Include="AngularApp\Admin\EditEssayTopic\Templates\CreateAndModifyEssayTopicModal.html" />
+    <Content Include="AngularApp\Admin\EditEssayTopic\Templates\EditEssayTopic.html" />
+    <Content Include="AngularApp\Admin\InviteApplicationEvaluator\Templates\InviteApplicationEvaluator.html" />
+    <Content Include="AngularApp\Admin\LetterOfRecommendation\Templates\CreateGetLetterOfRecommendationGuidModelModal.html" />
+    <Content Include="AngularApp\Admin\LetterOfRecommendation\Templates\GetGuidForAdminLetterOfRecommendation.html" />
+    <Content Include="AngularApp\Admin\NavBar\Templates\Directives\AdminNavBar.html" />
+    <Content Include="AngularApp\Applicant\AcademicInformation\Templates\AcademicInformation.html" />
+    <Content Include="AngularApp\Applicant\AcademicInformation\Templates\EditAcademicInfoModal.html" />
+    <Content Include="AngularApp\Applicant\Dashboard\Templates\AreYouSureFinalizeModal.html" />
+    <Content Include="AngularApp\Applicant\Dashboard\Templates\Directives\DashboardListItem.html" />
+    <Content Include="AngularApp\Applicant\Essays\Templates\ApplicantEssayTemplate.html" />
+    <Content Include="AngularApp\Applicant\Essays\Templates\EditEssayModal.html" />
+    <Content Include="AngularApp\Applicant\Extracurriculars\Templates\ActivityModal.html" />
+    <Content Include="AngularApp\Applicant\Extracurriculars\Templates\ExtracurricularsTemplate.html" />
+    <Content Include="AngularApp\Applicant\Extracurriculars\Templates\JobModal.html" />
+    <Content Include="AngularApp\Applicant\FamilyInformation\Templates\FamilyInformationModal.html" />
+    <Content Include="AngularApp\Applicant\FamilyInformation\Templates\FamilyInformationTemplate.html" />
+    <Content Include="AngularApp\Applicant\Finalized\Templates\FinalizedTemplate.html" />
+    <Content Include="AngularApp\Applicant\LowGrades\Templates\LowGradeModal.html" />
+    <Content Include="AngularApp\Applicant\LowGrades\Templates\LowGrades.html" />
+    <Content Include="AngularApp\Applicant\ManageAccount\Templates\ManageUser.html" />
+    <Content Include="AngularApp\Applicant\NavBar\Templates\Directives\ApplicantNavBar.html" />
+    <Content Include="AngularApp\Applicant\PersonalInformation\Templates\PersonalInformation.html" />
+    <Content Include="AngularApp\Applicant\References\Templates\AddReferenceModal.html" />
+    <Content Include="AngularApp\Applicant\References\Templates\ApplicantReferencesTemplate.html" />
+    <Content Include="AngularApp\Applicant\Transcript\Templates\UploadTranscript.html" />
+    <Content Include="AngularApp\ApplicationEvaluator\EvaluateApplicants\GetAllApplicants\Templates\Directives\DisplayAllFinalizedApplicants.html" />
+    <Content Include="AngularApp\ApplicationEvaluator\EvaluateApplicants\RatingSummaries\Templates\RatingSummaries.html" />
+    <Content Include="AngularApp\ApplicationEvaluator\EvaluateApplicants\ReviewApplicant\Templates\Modals\AddRatingModal.html" />
+    <Content Include="AngularApp\ApplicationEvaluator\EvaluateApplicants\ReviewApplicant\Templates\Modals\ConfirmTranscriptModal.html" />
+    <Content Include="AngularApp\ApplicationEvaluator\EvaluateApplicants\ReviewApplicant\Templates\Modals\ViewAndRateEssayModal.html" />
+    <Content Include="AngularApp\ApplicationEvaluator\EvaluateApplicants\ReviewApplicant\Templates\Modals\ViewLetterOfRecommendationModal.html" />
+    <Content Include="AngularApp\ApplicationEvaluator\EvaluateApplicants\ReviewApplicant\Templates\ReviewApplicant.html" />
+    <Content Include="AngularApp\Common\Templates\Directives\Forms\FormTitleTemplate.html" />
+    <Content Include="AngularApp\Common\Templates\Directives\Forms\LastUpdatedStaticFieldTemplate.html" />
+    <Content Include="AngularApp\ApplicationEvaluator\Dashboard\Templates\EvaluateApplicantsDashboard.html" />
+    <Content Include="AngularApp\Applicant\Dashboard\Templates\ApplicantDashboard.html" />
+    <Content Include="AngularApp\ApplicationEvaluator\ManageAccount\Templates\ManageUser.html" />
+    <Content Include="AngularApp\ApplicationEvaluator\NavBar\Templates\Directives\EvaluateApplicantsNavBar.html" />
+    <Content Include="AngularApp\ApplicationEvaluator\PendingConfirmation\Templates\PendingConfirmation.html" />
+    <Content Include="AngularApp\Home\Templates\HomeTemplate.html" />
+    <Content Include="AngularApp\Person\ContactInformation\Templates\AddContactInformationModal.html" />
+    <Content Include="AngularApp\Person\ContactInformation\Templates\ContactInformation.html" />
+    <Content Include="AngularApp\Reference\LetterOfRecommendation\Anon\Templates\LettersOfRecommendation.html" />
+    <Content Include="AngularApp\Reference\LetterOfRecommendation\Anon\Templates\ReferencePersonalInformationModal.html" />
+    <Content Include="AngularApp\UserAccount\ChangeEmail\Templates\CancelTemplate.html" />
+    <Content Include="AngularApp\UserAccount\ChangeEmail\Templates\ConfirmTemplate.html" />
+    <Content Include="AngularApp\UserAccount\Login\Templates\Directives\LoginFields.html" />
+    <Content Include="AngularApp\UserAccount\Login\Templates\Directives\LoginScreen.html" />
+    <Content Include="AngularApp\UserAccount\Login\Templates\LoginTemplate.html" />
+    <Content Include="AngularApp\UserAccount\Manage\Templates\Directives\ChangeEmail.html" />
+    <Content Include="AngularApp\UserAccount\Manage\Templates\Directives\ChangePassword.html" />
+    <Content Include="AngularApp\UserAccount\Manage\Templates\Directives\ManageUser.html" />
+    <Content Include="AngularApp\UserAccount\PasswordStrength\Templates\Directives\PasswordFieldAndMeter.html" />
+    <Content Include="AngularApp\UserAccount\RegisterApplicant\Templates\RegisterApplicant.html" />
+    <Content Include="AngularApp\UserAccount\RegisterApplicationEvaluator\Templates\RegisterApplicationEvaluator.html" />
+    <Content Include="AngularApp\UserAccount\ResetPassword\Templates\ResetPassword.html" />
+    <Content Include="AngularApp\UserAccount\ResetPassword\Templates\ResetPasswordRequest.html" />
+    <Content Include="Content\bootstrap-yeti-3.2.0.css" />
+    <Content Include="Content\dropzone-3.10.2.css" />
+    <Content Include="Content\Images\Logos\apple-touch-icon.png" />
+    <Content Include="Content\Images\Logos\logo - many sizes - generated from svg\badgelogo.scale-100.png" />
+    <Content Include="Content\Images\Logos\logo - many sizes - generated from svg\badgelogo.scale-140.png" />
+    <Content Include="Content\Images\Logos\logo - many sizes - generated from svg\badgelogo.scale-180.png" />
+    <Content Include="Content\Images\Logos\logo - many sizes - generated from svg\badgelogo.scale-240.png" />
+    <Content Include="Content\Images\Logos\logo - many sizes - generated from svg\largelogo.scale-100.png" />
+    <Content Include="Content\Images\Logos\logo - many sizes - generated from svg\largelogo.scale-140.png" />
+    <Content Include="Content\Images\Logos\logo - many sizes - generated from svg\largelogo.scale-180.png" />
+    <Content Include="Content\Images\Logos\logo - many sizes - generated from svg\largelogo.scale-80.png" />
+    <Content Include="Content\Images\Logos\logo - many sizes - generated from svg\logo.scale-100.png" />
+    <Content Include="Content\Images\Logos\logo - many sizes - generated from svg\logo.scale-140.png" />
+    <Content Include="Content\Images\Logos\logo - many sizes - generated from svg\logo.scale-180.png" />
+    <Content Include="Content\Images\Logos\logo - many sizes - generated from svg\logo.scale-240.png" />
+    <Content Include="Content\Images\Logos\logo - many sizes - generated from svg\logo.scale-80.png" />
+    <Content Include="Content\Images\Logos\logo - many sizes - generated from svg\phonesplashscreen.scale-100.png" />
+    <Content Include="Content\Images\Logos\logo - many sizes - generated from svg\phonesplashscreen.scale-140.png" />
+    <Content Include="Content\Images\Logos\logo - many sizes - generated from svg\phonesplashscreen.scale-240.png" />
+    <Content Include="Content\Images\Logos\logo - many sizes - generated from svg\smalllogo.scale-100.png" />
+    <Content Include="Content\Images\Logos\logo - many sizes - generated from svg\smalllogo.scale-140.png" />
+    <Content Include="Content\Images\Logos\logo - many sizes - generated from svg\smalllogo.scale-180.png" />
+    <Content Include="Content\Images\Logos\logo - many sizes - generated from svg\smalllogo.scale-80.png" />
+    <Content Include="Content\Images\Logos\logo - many sizes - generated from svg\smalltilelogo.scale-100.png" />
+    <Content Include="Content\Images\Logos\logo - many sizes - generated from svg\smalltilelogo.scale-140.png" />
+    <Content Include="Content\Images\Logos\logo - many sizes - generated from svg\smalltilelogo.scale-180.png" />
+    <Content Include="Content\Images\Logos\logo - many sizes - generated from svg\smalltilelogo.scale-80.png" />
+    <Content Include="Content\Images\Logos\logo - many sizes - generated from svg\splashscreen.scale-100.png" />
+    <Content Include="Content\Images\Logos\logo - many sizes - generated from svg\splashscreen.scale-140.png" />
+    <Content Include="Content\Images\Logos\logo - many sizes - generated from svg\splashscreen.scale-180.png" />
+    <Content Include="Content\Images\Logos\logo - many sizes - generated from svg\square44x44logo.scale-100.png" />
+    <Content Include="Content\Images\Logos\logo - many sizes - generated from svg\square44x44logo.scale-140.png" />
+    <Content Include="Content\Images\Logos\logo - many sizes - generated from svg\square44x44logo.scale-240.png" />
+    <Content Include="Content\Images\Logos\logo - many sizes - generated from svg\square71x71logo.scale-100.png" />
+    <Content Include="Content\Images\Logos\logo - many sizes - generated from svg\square71x71logo.scale-140.png" />
+    <Content Include="Content\Images\Logos\logo - many sizes - generated from svg\square71x71logo.scale-240.png" />
+    <Content Include="Content\Images\Logos\logo - many sizes - generated from svg\widelogo.scale-100.png" />
+    <Content Include="Content\Images\Logos\logo - many sizes - generated from svg\widelogo.scale-140.png" />
+    <Content Include="Content\Images\Logos\logo - many sizes - generated from svg\widelogo.scale-180.png" />
+    <Content Include="Content\Images\Logos\logo - many sizes - generated from svg\widelogo.scale-240.png" />
+    <Content Include="Content\Images\Logos\logo - many sizes - generated from svg\widelogo.scale-80.png" />
+    <Content Include="Content\Images\Logos\Favicon Generator.txt" />
+    <Content Include="Content\Images\Logos\favicon.ico" />
+    <Content Include="Content\Images\Logos\semetricalLogo.png" />
+    <Content Include="Content\Images\Logos\semetricalLogo_inverted.png" />
+    <Content Include="Content\Images\Logos\semetricalLogo_inverted.svg" />
+    <Content Include="Content\Images\Logos\semetricalLogo_transparent.png" />
+    <Content Include="Content\Images\Logos\semetricalLogo_withOutline.png" />
+    <Content Include="Content\Images\Logos\transparent_bulldog_log.png" />
+    <Content Include="Content\Images\Logos\transparent_bulldog_log.svg" />
+    <Content Include="Content\Images\Logos\apple-touch-icon.svg" />
+    <Content Include="Content\loading-bar-0.6.0.css" />
+    <Content Include="Content\textAngular.min.css" />
+    <Content Include="Content\toaster-0.4.7.css" />
+    <Content Include="Controllers\Admin\EditEssayTopic\Testing.txt" />
+    <Content Include="Controllers\Applicant\Essay\EssayControllerTests.txt" />
+    <Content Include="Controllers\Applicant\PersonalInformation\TestingPersonalInformation.txt" />
+    <Content Include="Controllers\Applicant\References\ApplicantReferenceControllerTests.txt" />
+    <Content Include="Controllers\ApplicationEvaluator\EvaluatingApplicants\Transcript\testingUri.txt" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="karma.conf.js" />
+    <Content Include="Scripts\angular-mocks.js" />
+    <Content Include="Scripts\angular-scenario.js" />
+    <Content Include="Scripts\ApplicationInsights.js" />
+    <Content Include="Scripts\cdn\angular-animate\angular-animate.js" />
+    <Content Include="Scripts\cdn\angular-resource\angular-resource.js" />
+    <Content Include="Scripts\cdn\angular-route\angular-route.js" />
+    <Content Include="Scripts\cdn\angular-touch\angular-touch.js" />
+    <Content Include="Scripts\cdn\angular\angular.js" />
+    <Content Include="Scripts\cdn\scriptjs\script-2.5.7.js" />
+    <Content Include="Scripts\minorfiles\textAngular-sanitize-textAngular-1.2.2.min.js" />
+    <Content Include="Scripts\minorfiles\rangy-core-1.2.3.js" />
+    <Content Include="Scripts\cdn\ui-bootstrap-tpls-0.11.0.js" />
+    <Content Include="Scripts\cdn\dropzone-3.10.2.js" />
+    <Content Include="Scripts\i18n\angular-locale_en.js" />
+    <Content Include="Scripts\minorfiles\angular-local-storage-8-14-2014.js" />
+    <Content Include="Scripts\minorfiles\angular-toaster-0.4.7.js" />
+    <Content Include="Scripts\minorfiles\angular-ui-ui-utils-keypress-12-28-2013.js" />
+    <Content Include="Scripts\minorfiles\loading-bar-0.6.0.js" />
+    <Content Include="Scripts\sinon-1.10.3.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Areas\HelpPage\Views\_ViewStart.cshtml" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\Home\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BohFoundation.AdminsRepository\BohFoundation.AdminsRepository.csproj">
+      <Project>{81477345-0F13-48D3-BC35-392FAAF8E1DD}</Project>
+      <Name>BohFoundation.AdminsRepository</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BohFoundation.ApplicantsRepository\BohFoundation.ApplicantsRepository.csproj">
+      <Project>{87A67F28-8A4D-4382-BE0A-26174DE94773}</Project>
+      <Name>BohFoundation.ApplicantsRepository</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BohFoundation.ApplicationEvaluatorsRepository\BohFoundation.ApplicationEvaluatorsRepository.csproj">
+      <Project>{585b8fab-c9c8-4a85-b3c0-c33420758106}</Project>
+      <Name>BohFoundation.ApplicationEvaluatorsRepository</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BohFoundation.AzureStorage\BohFoundation.AzureStorage.csproj">
+      <Project>{56152A8B-4F10-487E-B8B7-AB5F9162BB12}</Project>
+      <Name>BohFoundation.AzureStorage</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BohFoundation.Domain\BohFoundation.Domain.csproj">
+      <Project>{16160B03-BF31-4E20-846A-390E647BDC81}</Project>
+      <Name>BohFoundation.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BohFoundation.Infrastructure\BohFoundation.Infrastructure.csproj">
+      <Project>{338CE97B-8247-4C25-8403-E4CBD6C873B2}</Project>
+      <Name>BohFoundation.Infrastructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BohFoundation.MembershipProvider\BohFoundation.MembershipProvider.csproj">
+      <Project>{ECDEAF3E-E3C3-4C8E-812A-3E1E0E91D793}</Project>
+      <Name>BohFoundation.MembershipProvider</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BohFoundation.MiddleTier\BohFoundation.MiddleTier.csproj">
+      <Project>{836B307A-6BA9-4DFC-95A5-C2C91C7AA87C}</Project>
+      <Name>BohFoundation.MiddleTier</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BohFoundation.PersonsRepository\BohFoundation.PersonsRepository.csproj">
+      <Project>{43A6C40F-BF33-4309-934F-04C9F9CED317}</Project>
+      <Name>BohFoundation.PersonsRepository</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BohFoundation.ReferencesRepository\BohFoundation.ReferencesRepository.csproj">
+      <Project>{8f7f7b00-9300-4e48-9e3d-ad74b9948c42}</Project>
+      <Name>BohFoundation.ReferencesRepository</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BohFoundation.Utilities\BohFoundation.Utilities.csproj">
+      <Project>{5949917F-901A-4B7E-991A-AE9B1CD9AAB9}</Project>
+      <Name>BohFoundation.Utilities</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+    <Content Include="Content\Images\Logos\transparent_bulldog_log.eps" />
+    <Content Include="Content\Images\Logos\transparent_bulldog_log.pdf" />
+    <Content Include="Content\Images\Logos\semetricalLogo_inverted.eps" />
+    <Content Include="Content\Images\Logos\semetricalLogo_inverted.pdf" />
+    <Content Include="Content\Images\Logos\logo - many sizes - generated from svg\Thumbs.db" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Scripts\minorfiles\angular-css-injector-1.0.4.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="AngularAppSpec\Admin\LetterOfRecommendation\Controllers\AdminLetterOfRecommendationCtrlSpec.ts" />
+    <TypeScriptCompile Include="AngularAppSpec\Admin\LetterOfRecommendation\Controllers\CreateGetLetterOfRecommendationGuidModelModalSpec.ts" />
+    <TypeScriptCompile Include="AngularAppSpec\Admin\LetterOfRecommendation\Services\AdminLetterOfRecommendationServiceSpec.ts" />
+    <TypeScriptCompile Include="AngularAppSpec\Applicant\AcademicInformation\Spec\Controllers\EditAcademicInformationModalCtrlSpec.ts" />
+    <TypeScriptCompile Include="AngularAppSpec\Applicant\Dashboard\Spec\Controllers\AreYouSureFinalizeModalCtrlSpec.ts" />
+    <TypeScriptCompile Include="AngularAppSpec\Applicant\Dashboard\Spec\Services\FinalizeApplicationServiceSpec.ts" />
+    <TypeScriptCompile Include="AngularAppSpec\Applicant\Extracurriculars\Spec\Controllers\ActivitiesModalCtrlSpec.ts" />
+    <TypeScriptCompile Include="AngularAppSpec\Applicant\Extracurriculars\Spec\Controllers\ExtracurricularsCtrlSpec.ts" />
+    <TypeScriptCompile Include="AngularAppSpec\Applicant\Extracurriculars\Spec\Controllers\JobModalCtrlSpec.ts" />
+    <TypeScriptCompile Include="AngularAppSpec\Applicant\Extracurriculars\Spec\Services\ExtracurricularsServiceSpec.ts" />
+    <TypeScriptCompile Include="AngularAppSpec\Applicant\FamilyInformation\Spec\Controllers\FamilyInformationCtrlSpec.ts" />
+    <TypeScriptCompile Include="AngularAppSpec\Applicant\FamilyInformation\Spec\Controllers\FamilyInformationModalCtrl.ts" />
+    <TypeScriptCompile Include="AngularAppSpec\Applicant\FamilyInformation\Spec\Services\FamilyInformationServicesSpec.ts" />
+    <TypeScriptCompile Include="AngularAppSpec\Applicant\Transcript\Spec\Services\TranscriptServicesSpec.ts" />
+    <TypeScriptCompile Include="AngularAppSpec\ApplicationEvaluator\EvaluateApplicants\GetAllApplicants\Controllers\DisplayAllFinalizedApplicantsDirectiveCtrlSpec.ts" />
+    <TypeScriptCompile Include="AngularAppSpec\ApplicationEvaluator\EvaluateApplicants\GetAllApplicants\Services\GetAllApplicantsServiceSpec.ts" />
+    <TypeScriptCompile Include="AngularAppSpec\ApplicationEvaluator\EvaluateApplicants\RatingSummaries\Controllers\RatingSummariesCtrlSpec.ts" />
+    <TypeScriptCompile Include="AngularAppSpec\ApplicationEvaluator\EvaluateApplicants\RatingSummaries\Services\RatingSummariesServiceSpec.ts" />
+    <TypeScriptCompile Include="AngularAppSpec\ApplicationEvaluator\EvaluateApplicants\ReviewApplicant\Controllers\CurrentApplicationCtrlSpec.ts" />
+    <TypeScriptCompile Include="AngularAppSpec\ApplicationEvaluator\EvaluateApplicants\ReviewApplicant\Controllers\Modals\ConfirmTranscriptModalCtrlSpec.ts" />
+    <TypeScriptCompile Include="AngularAppSpec\ApplicationEvaluator\EvaluateApplicants\ReviewApplicant\Controllers\Modals\CreateRatingModalCtrlSpec.ts" />
+    <TypeScriptCompile Include="AngularAppSpec\ApplicationEvaluator\EvaluateApplicants\ReviewApplicant\Controllers\Modals\ViewAndRateEssayModalCtrlSpec.ts" />
+    <TypeScriptCompile Include="AngularAppSpec\ApplicationEvaluator\EvaluateApplicants\ReviewApplicant\Controllers\Modals\ViewLetterOfRecommendationModalCtrlSpec.ts" />
+    <TypeScriptCompile Include="AngularAppSpec\ApplicationEvaluator\EvaluateApplicants\ReviewApplicant\Services\GetEssayAndLettersOfRecommendation\GetEssayForEvaluatorServiceSpec.ts" />
+    <TypeScriptCompile Include="AngularAppSpec\ApplicationEvaluator\EvaluateApplicants\ReviewApplicant\Services\GetEssayAndLettersOfRecommendation\GetLetterOfRecommendationForEvaluatorServiceSpec.ts" />
+    <TypeScriptCompile Include="AngularAppSpec\ApplicationEvaluator\EvaluateApplicants\ReviewApplicant\Services\Summaries\CurrentApplicantAcademicInformationServiceSpec.ts" />
+    <TypeScriptCompile Include="AngularAppSpec\ApplicationEvaluator\EvaluateApplicants\ReviewApplicant\Services\Summaries\CurrentApplicantEssayAndLettersOfRecommendationSummariesServiceSpec.ts" />
+    <TypeScriptCompile Include="AngularAppSpec\ApplicationEvaluator\EvaluateApplicants\ReviewApplicant\Services\Summaries\CurrentApplicantExtracurricularActivitiesServiceSpec.ts" />
+    <TypeScriptCompile Include="AngularAppSpec\ApplicationEvaluator\EvaluateApplicants\ReviewApplicant\Services\CurrentApplicantOrchestrationServiceSpec.ts" />
+    <TypeScriptCompile Include="AngularAppSpec\ApplicationEvaluator\EvaluateApplicants\ReviewApplicant\Services\Summaries\CurrentApplicantOverviewInformationServiceSpec.ts" />
+    <TypeScriptCompile Include="AngularAppSpec\ApplicationEvaluator\EvaluateApplicants\ReviewApplicant\Services\Rating\EssayRatingServiceSpec.ts" />
+    <TypeScriptCompile Include="AngularAppSpec\ApplicationEvaluator\EvaluateApplicants\ReviewApplicant\Services\Rating\GeneralRatingServiceSpec.ts" />
+    <TypeScriptCompile Include="AngularAppSpec\ApplicationEvaluator\EvaluateApplicants\ReviewApplicant\Services\Transcript\ConfirmTranscriptServiceSpec.ts" />
+    <TypeScriptCompile Include="AngularAppSpec\Common\Spec\Filters\Enums\RatingEnumFilterSpec.ts" />
+    <TypeScriptCompile Include="AngularAppSpec\Common\Spec\Filters\General\PercentileFilterSpec.ts" />
+    <TypeScriptCompile Include="AngularAppSpec\Person\ContactInformation\Spec\Controllers\ContactInformationModalInputCtrlSpec.ts" />
+    <TypeScriptCompile Include="AngularAppSpec\Common\Spec\Filters\Enums\EducationalDegreesEnumFilterSpec.ts" />
+    <TypeScriptCompile Include="AngularAppSpec\Common\Spec\Filters\Enums\IncomeRangeEnumFilterSpec.ts" />
+    <TypeScriptCompile Include="AngularAppSpec\Common\Spec\Filters\Enums\TimeOfDayEnumFilterSpec.ts" />
+    <TypeScriptCompile Include="AngularAppSpec\Common\Spec\Filters\General\PhoneNumberFormatFilterSpec.ts" />
+    <TypeScriptCompile Include="AngularAppSpec\Common\Spec\Filters\General\StripAllNonNumbersFilterSpec.ts" />
+    <TypeScriptCompile Include="AngularAppSpec\Common\Spec\Services\Resolvers\GenericResolverSpec.ts" />
+    <TypeScriptCompile Include="AngularAppSpec\Reference\LetterOfRecommendation\Anon\Controllers\AnonReferencePersonalInfoModalCtrlSpec.ts" />
+    <TypeScriptCompile Include="AngularAppSpec\Reference\LetterOfRecommendation\Anon\Controllers\RecommendAnonCtrlSpec.ts" />
+    <TypeScriptCompile Include="AngularAppSpec\Reference\LetterOfRecommendation\Anon\Services\RecommendAnonServiceSpec.ts" />
+    <TypeScriptCompile Include="AngularAppSpec\TestUtilities\CommonStubs.ts" />
+    <TypeScriptCompile Include="AngularAppSpec\TestUtilities\FakeModal.ts" />
+    <TypeScriptCompile Include="AngularAppSpec\TestUtilities\GenericModalTests.ts" />
+    <TypeScriptCompile Include="AngularApp\Admin\ConfirmPendingApplicationEvaluators\Controllers\ConfirmPendingApplicationEvaluatorsCtrl.ts" />
+    <TypeScriptCompile Include="AngularApp\Admin\EditEssayTopic\Controllers\CreateAndModifyEssayTopicModal.ts" />
+    <TypeScriptCompile Include="AngularApp\Admin\EditEssayTopic\Controllers\EditEssayTopicCtrl.ts" />
+    <TypeScriptCompile Include="AngularApp\Admin\EditEssayTopic\Services\ModifyEssayTopicGraduatingYearService.ts" />
+    <TypeScriptCompile Include="AngularApp\Admin\EditEssayTopic\Services\CreateAndGetEssayTopicsService.ts" />
+    <TypeScriptCompile Include="AngularAppSpec\Admin\EditEssayTopic\Spec\Controllers\CreateAndModifyEssayTopicModalSpec.ts" />
+    <TypeScriptCompile Include="AngularAppSpec\Admin\EditEssayTopic\Spec\Controllers\EditEssayTopicCtrlSpec.ts" />
+    <TypeScriptCompile Include="AngularAppSpec\Admin\EditEssayTopic\Spec\Services\ModifyEssayTopicGraduatingYearServiceSpec.ts" />
+    <TypeScriptCompile Include="AngularAppSpec\Admin\EditEssayTopic\Spec\Services\CreateAndGetEssayTopicsServiceSpec.ts" />
+    <TypeScriptCompile Include="AngularApp\Admin\LetterOfRecommendation\Contollers\AdminLetterOfRecommendationCtrl.ts" />
+    <TypeScriptCompile Include="AngularApp\Admin\LetterOfRecommendation\Contollers\CreateGetLetterOfRecommendationGuidModelModalCtrl.ts" />
+    <TypeScriptCompile Include="AngularApp\Admin\LetterOfRecommendation\Services\AdminLetterOfRecommendationService.ts" />
+    <TypeScriptCompile Include="AngularApp\Applicant\AcademicInformation\Controllers\AcademicInformationCtrl.ts" />
+    <TypeScriptCompile Include="AngularApp\Applicant\AcademicInformation\Controllers\EditAcademicInformationModalCtrl.ts" />
+    <TypeScriptCompile Include="AngularApp\Applicant\AcademicInformation\Services\AcademicInformationServices.ts" />
+    <TypeScriptCompile Include="AngularAppSpec\Applicant\AcademicInformation\Spec\Controllers\AcademicInformationCtrlSpec.ts" />
+    <TypeScriptCompile Include="AngularAppSpec\Applicant\AcademicInformation\Spec\Services\AcademicInformationServiceSpec.ts" />
+    <TypeScriptCompile Include="AngularApp\Applicant\Dashboard\Directives\ApplicantDashboardListItemDirective.ts" />
+    <TypeScriptCompile Include="AngularApp\Applicant\Dashboard\Models\ApplicantDashboardListItemInputModel.ts" />
+    <TypeScriptCompile Include="AngularAppSpec\Applicant\Dashboard\Spec\Directives\ApplicantDashboardFormListItemDirectiveSpec.ts" />
+    <TypeScriptCompile Include="AngularApp\Applicant\Dashboard\Services\ApplicantNotificationService.ts" />
+    <TypeScriptCompile Include="AngularAppSpec\Applicant\Dashboard\Spec\Services\ApplicantNotificationServiceSpec.ts" />
+    <TypeScriptCompile Include="AngularApp\Applicant\Dashboard\Controllers\AreYouSureFinalizeModalCtrl.ts" />
+    <TypeScriptCompile Include="AngularApp\Applicant\Dashboard\Services\FinalizeApplicationService.ts" />
+    <TypeScriptCompile Include="AngularApp\Applicant\Essays\Controllers\ApplicantEditEssayModalCtrl.ts" />
+    <TypeScriptCompile Include="AngularApp\Applicant\Essays\Controllers\ApplicantEssayCtrl.ts" />
+    <TypeScriptCompile Include="AngularApp\Applicant\Essays\Services\ApplicantEssayService.ts" />
+    <TypeScriptCompile Include="AngularAppSpec\Applicant\Essays\Spec\Controllers\ApplicantEditEssayModalCtrlSpec.ts" />
+    <TypeScriptCompile Include="AngularAppSpec\Applicant\Essays\Spec\Controllers\ApplicantEssayCtrlSpec.ts" />
+    <TypeScriptCompile Include="AngularAppSpec\Applicant\Essays\Spec\Services\ApplicantEssayServiceSpec.ts" />
+    <TypeScriptCompile Include="AngularApp\Applicant\Extracurriculars\Controllers\ActivitiesModalCtrl.ts" />
+    <TypeScriptCompile Include="AngularApp\Applicant\Extracurriculars\Controllers\ExtracurricularsCtrl.ts" />
+    <TypeScriptCompile Include="AngularApp\Applicant\Extracurriculars\Controllers\JobModalCtrl.ts" />
+    <TypeScriptCompile Include="AngularApp\Applicant\Extracurriculars\Services\ExtracurricularsService.ts" />
+    <TypeScriptCompile Include="AngularApp\Applicant\FamilyInformation\Controllers\FamilyInformationCtrl.ts" />
+    <TypeScriptCompile Include="AngularApp\Applicant\FamilyInformation\Controllers\FamilyInformationModalCtrl.ts" />
+    <TypeScriptCompile Include="AngularApp\Applicant\FamilyInformation\Services\FamilyInformationService.ts" />
+    <TypeScriptCompile Include="AngularApp\Applicant\Finalized\Controllers\FinalizedCtrl.ts" />
+    <TypeScriptCompile Include="AngularApp\Applicant\LowGrades\Controllers\LowGradeModalCtrl.ts" />
+    <TypeScriptCompile Include="AngularApp\Applicant\LowGrades\Controllers\LowGradesCtrl.ts" />
+    <TypeScriptCompile Include="AngularApp\Applicant\LowGrades\Services\LowGradesService.ts" />
+    <TypeScriptCompile Include="AngularAppSpec\Applicant\LowGrades\Spec\Controllers\LowGradeModalCtrlSpec.ts" />
+    <TypeScriptCompile Include="AngularAppSpec\Applicant\LowGrades\Spec\Controllers\LowGradesCtrlSpec.ts" />
+    <TypeScriptCompile Include="AngularAppSpec\Applicant\LowGrades\Spec\Services\LowGradesServiceSpec.ts" />
+    <TypeScriptCompile Include="AngularApp\Applicant\References\Controllers\ApplicantReferenceCtrl.ts" />
+    <TypeScriptCompile Include="AngularApp\Applicant\References\Controllers\ApplicantReferenceModalCtrl.ts" />
+    <TypeScriptCompile Include="AngularApp\Applicant\References\Services\ApplicantReferenceService.ts" />
+    <TypeScriptCompile Include="AngularAppSpec\Applicant\References\Spec\Controllers\ApplicantReferenceControllerSpec.ts" />
+    <TypeScriptCompile Include="AngularAppSpec\Applicant\References\Spec\Controllers\ApplicantReferenceModalCtrlSpec.ts" />
+    <TypeScriptCompile Include="AngularAppSpec\Applicant\References\Spec\Services\ApplicantReferenceServiceSpec.ts" />
+    <TypeScriptCompile Include="AngularApp\Applicant\Transcript\Services\TranscriptService.ts" />
+    <TypeScriptCompile Include="AngularApp\ApplicationEvaluator\EvaluateApplicants\GetAllApplicants\Controllers\DisplayAllFinalizedApplicantsDirectiveCtrl.ts" />
+    <TypeScriptCompile Include="AngularApp\ApplicationEvaluator\EvaluateApplicants\GetAllApplicants\Directives\DisplayAllFinalizedApplicants.ts" />
+    <TypeScriptCompile Include="AngularApp\ApplicationEvaluator\EvaluateApplicants\GetAllApplicants\Services\GetAllApplicantsService.ts" />
+    <TypeScriptCompile Include="AngularApp\ApplicationEvaluator\EvaluateApplicants\RatingSummaries\Controllers\RatingSummariesCtrl.ts" />
+    <TypeScriptCompile Include="AngularApp\ApplicationEvaluator\EvaluateApplicants\RatingSummaries\Services\RatingSummariesService.ts" />
+    <TypeScriptCompile Include="AngularApp\ApplicationEvaluator\EvaluateApplicants\ReviewApplicant\Controllers\Modals\ConfirmTranscriptModalCtrl.ts" />
+    <TypeScriptCompile Include="AngularApp\ApplicationEvaluator\EvaluateApplicants\ReviewApplicant\Controllers\Modals\ViewAndRateEssayModalCtrl.ts" />
+    <TypeScriptCompile Include="AngularApp\ApplicationEvaluator\EvaluateApplicants\ReviewApplicant\Controllers\Modals\ViewLetterOfRecommendationModalCtrl.ts" />
+    <TypeScriptCompile Include="AngularApp\ApplicationEvaluator\EvaluateApplicants\ReviewApplicant\Models\RatingsArray.ts" />
+    <TypeScriptCompile Include="AngularApp\ApplicationEvaluator\EvaluateApplicants\ReviewApplicant\Controllers\CurrentApplicationCtrl.ts" />
+    <TypeScriptCompile Include="AngularApp\ApplicationEvaluator\EvaluateApplicants\ReviewApplicant\Controllers\Modals\CreateRatingModalCtrl.ts" />
+    <TypeScriptCompile Include="AngularApp\ApplicationEvaluator\EvaluateApplicants\ReviewApplicant\Models\TranscriptConfirmed.ts" />
+    <TypeScriptCompile Include="AngularApp\ApplicationEvaluator\EvaluateApplicants\ReviewApplicant\Services\GetEssayAndLettersOfRecommendation\GetEssayForEvaluatorService.ts" />
+    <TypeScriptCompile Include="AngularApp\ApplicationEvaluator\EvaluateApplicants\ReviewApplicant\Services\GetEssayAndLettersOfRecommendation\GetLetterOfRecommendationForEvaluatorService.ts" />
+    <TypeScriptCompile Include="AngularApp\ApplicationEvaluator\EvaluateApplicants\ReviewApplicant\Services\Summaries\CurrentApplicantAcademicInformationService.ts" />
+    <TypeScriptCompile Include="AngularApp\ApplicationEvaluator\EvaluateApplicants\ReviewApplicant\Services\Summaries\CurrentApplicantEssayAndLettersOfRecommendationSummariesService.ts" />
+    <TypeScriptCompile Include="AngularApp\ApplicationEvaluator\EvaluateApplicants\ReviewApplicant\Services\Summaries\CurrentApplicantExtracurricularActivitiesService.ts" />
+    <TypeScriptCompile Include="AngularApp\ApplicationEvaluator\EvaluateApplicants\ReviewApplicant\Services\Summaries\CurrentApplicantOverviewInformationService.ts" />
+    <TypeScriptCompile Include="AngularApp\ApplicationEvaluator\EvaluateApplicants\ReviewApplicant\Services\CurrentApplicantOrchestrationService.ts" />
+    <TypeScriptCompile Include="AngularApp\ApplicationEvaluator\EvaluateApplicants\ReviewApplicant\Services\Rating\EssayRatingService.ts" />
+    <TypeScriptCompile Include="AngularApp\ApplicationEvaluator\EvaluateApplicants\ReviewApplicant\Services\Rating\GeneralRatingService.ts" />
+    <TypeScriptCompile Include="AngularApp\ApplicationEvaluator\EvaluateApplicants\ReviewApplicant\Services\Transcript\ConfirmTranscriptService.ts" />
+    <TypeScriptCompile Include="AngularApp\Common\Enums\CrudEnum.ts" />
+    <TypeScriptCompile Include="AngularApp\Common\Enums\EducationalDegreesEnum.ts" />
+    <TypeScriptCompile Include="AngularApp\Common\Enums\IncomeRangeEnum.ts" />
+    <TypeScriptCompile Include="AngularApp\Common\Enums\RatingEnum.ts" />
+    <TypeScriptCompile Include="AngularApp\Common\Enums\TimeOfDayEnum.ts" />
+    <TypeScriptCompile Include="AngularApp\Common\Filters\Enums\EducationalDegreesEnumFilter.ts" />
+    <TypeScriptCompile Include="AngularApp\Common\Filters\Enums\IncomeRangeEnumFilter.ts" />
+    <TypeScriptCompile Include="AngularApp\Common\Filters\Enums\RatingEnumFilter.ts" />
+    <TypeScriptCompile Include="AngularApp\Common\Filters\Enums\TimeOfDayEnumFilter.ts" />
+    <TypeScriptCompile Include="AngularApp\Common\Filters\Enums\YearOfHighSchoolEnumFilter.ts" />
+    <TypeScriptCompile Include="AngularAppSpec\Common\Spec\Filters\Enums\YearOfHighSchoolEnumFilterSpec.ts" />
+    <TypeScriptCompile Include="AngularApp\Common\Filters\General\PercentileFilter.ts" />
+    <TypeScriptCompile Include="AngularApp\Common\Filters\General\PhoneNumberFormatFilter.ts" />
+    <TypeScriptCompile Include="AngularApp\Common\Filters\General\StripAllNonNumbersFilter.ts" />
+    <TypeScriptCompile Include="AngularApp\Common\Models\ServerMessageModel.ts" />
+    <TypeScriptCompile Include="AngularApp\Common\Services\Resolvers\GenericResolver.ts" />
+    <TypeScriptCompile Include="AngularApp\Dtos\Admin\EssayTopics\CreateAndModifyEssayTopicModel.ts" />
+    <TypeScriptCompile Include="AngularApp\Dtos\Admin\EssayTopics\EditEssayTopicByGraduatingClassModel.ts" />
+    <TypeScriptCompile Include="AngularApp\Dtos\Admin\EssayTopics\EssayTopicModel.ts" />
+    <TypeScriptCompile Include="AngularApp\Dtos\Admin\References\GetLetterOfRecommendationGuidModel.ts" />
+    <TypeScriptCompile Include="AngularApp\Dtos\Admin\References\GuidSentToReferenceModel.ts" />
+    <TypeScriptCompile Include="AngularApp\Dtos\Applicant\Academic\LowGradeModel.ts" />
+    <TypeScriptCompile Include="AngularApp\Dtos\Applicant\Academic\LowGradesWithGpaModel.ts" />
+    <TypeScriptCompile Include="AngularApp\Dtos\Applicant\Academic\TranscriptBlobReferenceModel.ts" />
+    <TypeScriptCompile Include="AngularApp\Dtos\Applicant\Essay\EssayModel.ts" />
+    <TypeScriptCompile Include="AngularApp\Dtos\Applicant\Extracurricular\ActivityModel.ts" />
+    <TypeScriptCompile Include="AngularApp\Dtos\Applicant\Extracurricular\ExtracurricularActivitiesModel.ts" />
+    <TypeScriptCompile Include="AngularApp\Dtos\Applicant\Extracurricular\JobModel.ts" />
+    <TypeScriptCompile Include="AngularApp\Dtos\Applicant\Family\FamilyInformationModel.ts" />
+    <TypeScriptCompile Include="AngularApp\Dtos\Applicant\Notifications\ApplicantReferenceCountsModel.ts" />
+    <TypeScriptCompile Include="AngularApp\Dtos\Applicant\Notifications\EssayNotificationsModel.ts" />
+    <TypeScriptCompile Include="AngularApp\Dtos\Applicant\Notifications\NumberOfLowGradeExplainationsNeededModel.ts" />
+    <TypeScriptCompile Include="AngularAppSpec\Dtos\Applicant\Notifications\Spec\NumberOfLowGradeExplainationsNeededSpec.ts" />
+    <TypeScriptCompile Include="AngularApp\Applicant\PersonalInformation\Controllers\PersonalInformationCtrl.ts" />
+    <TypeScriptCompile Include="AngularApp\Applicant\PersonalInformation\Models\DatePickerSettingsModel.ts" />
+    <TypeScriptCompile Include="AngularAppSpec\Applicant\PersonalInformation\Spec\Models\DatePickerSettingsModelSpec.ts" />
+    <TypeScriptCompile Include="AngularAppSpec\Applicant\PersonalInformation\Spec\Controllers\PersonalInformationCtrlSpec.ts" />
+    <TypeScriptCompile Include="AngularApp\Applicant\Transcript\Controllers\UploadTranscriptCtrl.ts" />
+    <TypeScriptCompile Include="AngularAppSpec\Applicant\Transcript\Spec\Controllers\UploadTranscriptCtrl.ts" />
+    <TypeScriptCompile Include="AngularApp\Common\Directives\DropZoneDirective.ts" />
+    <TypeScriptCompile Include="AngularApp\Common\Directives\Forms\LastUpdatedStaticFieldDirective.ts" />
+    <TypeScriptCompile Include="AngularApp\Common\Directives\Forms\FormTitleDirective.ts" />
+    <TypeScriptCompile Include="AngularApp\Common\Enums\StyleEnum.ts" />
+    <TypeScriptCompile Include="AngularApp\Common\Enums\YearOfHighSchool.ts" />
+    <TypeScriptCompile Include="AngularApp\Common\Models\DropZoneConfigModel.ts" />
+    <TypeScriptCompile Include="AngularAppSpec\Common\Spec\Directives\Forms\LastUpdatedStaticFieldDirectiveSpec.ts" />
+    <TypeScriptCompile Include="AngularAppSpec\Common\Spec\Directives\Forms\FormTitlesDirectiveSpec.ts" />
+    <TypeScriptCompile Include="AngularApp\Dtos\Admin\ConfirmApplicationEvaluatorModel.ts" />
+    <TypeScriptCompile Include="AngularApp\Admin\ConfirmPendingApplicationEvaluators\Models\PendingApplicationEvaluatorModel.ts" />
+    <TypeScriptCompile Include="AngularApp\Admin\ConfirmPendingApplicationEvaluators\Services\ConfirmPendingApplicationEvaluatorsService.ts" />
+    <TypeScriptCompile Include="AngularAppSpec\Admin\ConfirmPendingApplicationEvaluators\Spec\Controllers\ConfirmPendingApplicationEvaluatorsCtrlSpec.ts" />
+    <TypeScriptCompile Include="AngularAppSpec\Admin\ConfirmPendingApplicationEvaluators\Spec\Services\ConfirmPendingApplicationEvaluatorsServiceSpec.ts" />
+    <TypeScriptCompile Include="AngularApp\Admin\Dashboard\Controllers\AdminDashboardCtrl.ts" />
+    <TypeScriptCompile Include="AngularAppSpec\Admin\Dashboard\Spec\Controllers\AdminDashboardCtrlSpec.ts" />
+    <TypeScriptCompile Include="AngularApp\Admin\InviteApplicationEvaluator\Controllers\InviteApplicationEvaluatorCtrl.ts" />
+    <TypeScriptCompile Include="AngularAppSpec\Admin\InviteApplicationEvaluator\Spec\Controllers\InviteApplicationEvaluatorCtrlSpec.ts" />
+    <TypeScriptCompile Include="AngularApp\Dtos\Admin\AdminNotificationCounts.ts" />
+    <TypeScriptCompile Include="AngularApp\Admin\NavBar\Controllers\AdminNavBarCtrl.ts" />
+    <TypeScriptCompile Include="AngularApp\Admin\NavBar\Directives\AdminNavBarDirective.ts" />
+    <TypeScriptCompile Include="AngularAppSpec\Admin\NavBar\Spec\Controllers\AdminNavBarCtrlSpec.ts" />
+    <TypeScriptCompile Include="AngularApp\Admin\NotificationService\Services\AdminNotificationService.ts" />
+    <TypeScriptCompile Include="AngularAppSpec\Admin\NotificationService\Spec\Services\AdminNotificationServiceSpec.ts" />
+    <TypeScriptCompile Include="AngularApp\Applicant\ManageAccount\Controllers\ManageAccountApplicantCtrl.ts" />
+    <TypeScriptCompile Include="AngularApp\Applicant\NavBar\Controllers\ApplicantNavBarCtrl.ts" />
+    <TypeScriptCompile Include="AngularApp\Applicant\NavBar\Directives\ApplicantNavBarDirective.ts" />
+    <TypeScriptCompile Include="AngularAppSpec\Applicant\NavBar\Spec\Controllers\ApplicantMenuBarCtrlSpec.ts" />
+    <TypeScriptCompile Include="AngularApp\Applicant\PersonalInformation\Services\PersonalInformationService.ts" />
+    <TypeScriptCompile Include="AngularAppSpec\Applicant\PersonalInformation\Spec\Services\PersonalInformationServiceSpec.ts" />
+    <TypeScriptCompile Include="AngularApp\Common\Models\PersonModel.ts" />
+    <TypeScriptCompile Include="AngularApp\Dtos\Applicant\Academic\AcademicInformationModel.ts" />
+    <TypeScriptCompile Include="AngularApp\Dtos\Applicant\Academic\ClassRankModel.ts" />
+    <TypeScriptCompile Include="AngularApp\Dtos\Applicant\Notifications\ApplicantNotificationsModel.ts" />
+    <TypeScriptCompile Include="AngularApp\Dtos\Applicant\Notifications\LowGradeNotificationInformationModel.ts" />
+    <TypeScriptCompile Include="AngularApp\Dtos\Applicant\PersonalInformation\ApplicantPersonalInformationModel.ts" />
+    <TypeScriptCompile Include="AngularAppSpec\Dtos\Applicant\Notifications\Spec\LowGradeNotificationInformationSpec.ts" />
+    <TypeScriptCompile Include="AngularApp\Dtos\Applicant\References\ApplicantReferenceInputModel.ts" />
+    <TypeScriptCompile Include="AngularApp\Dtos\Applicant\References\ReferenceModel.ts" />
+    <TypeScriptCompile Include="AngularApp\Dtos\ApplicationEvaluator\EvaluatingApplicants\ConfirmTranscriptModel.ts" />
+    <TypeScriptCompile Include="AngularApp\Dtos\ApplicationEvaluator\EvaluatingApplicants\DisplayApplication\ApplicantsGeneralInformationModel.ts" />
+    <TypeScriptCompile Include="AngularApp\Dtos\ApplicationEvaluator\EvaluatingApplicants\DisplayApplication\CollectionsOfEssaysAndLettersOfRecommendationModel.ts" />
+    <TypeScriptCompile Include="AngularApp\Dtos\ApplicationEvaluator\EvaluatingApplicants\DisplayApplication\CompletedAcademicInformationModel.ts" />
+    <TypeScriptCompile Include="AngularApp\Dtos\ApplicationEvaluator\EvaluatingApplicants\DisplayApplication\Essay\EssaySummaryModel.ts" />
+    <TypeScriptCompile Include="AngularApp\Dtos\ApplicationEvaluator\EvaluatingApplicants\DisplayApplication\LetterOfRecommendation\LetterOfRecommendationSummaryModel.ts" />
+    <TypeScriptCompile Include="AngularApp\Dtos\ApplicationEvaluator\EvaluatingApplicants\RatingUpdate\EssayRatingModel.ts" />
+    <TypeScriptCompile Include="AngularApp\Dtos\ApplicationEvaluator\EvaluatingApplicants\RatingUpdate\RatingWithApplicantsGuidModel.ts" />
+    <TypeScriptCompile Include="AngularApp\Dtos\ApplicationEvaluator\EvaluatingApplicants\ShowAllApplicants\AllFinalizedApplicantsForAGraduatingYearModel.ts" />
+    <TypeScriptCompile Include="AngularApp\Dtos\ApplicationEvaluator\EvaluatingApplicants\ShowAllApplicants\ApplicantSummaryModel.ts" />
+    <TypeScriptCompile Include="AngularApp\Dtos\ApplicationEvaluator\RatingSummary\IndividualRatingModel.ts" />
+    <TypeScriptCompile Include="AngularApp\Dtos\ApplicationEvaluator\RatingSummary\Top5ApplicantsModel.ts" />
+    <TypeScriptCompile Include="AngularApp\Dtos\ApplicationEvaluator\RatingSummary\TopApplicantRatingSummaryModel.ts" />
+    <TypeScriptCompile Include="AngularApp\Dtos\Common\AzureQueuryObjects\AzureTableStorageEntityKeyModel.ts" />
+    <TypeScriptCompile Include="AngularApp\Dtos\Common\GenericRatingModel.ts" />
+    <TypeScriptCompile Include="AngularApp\Dtos\Common\LastUpdatedModel.ts" />
+    <TypeScriptCompile Include="AngularApp\Dtos\Email\SendEmailContactModel.ts" />
+    <TypeScriptCompile Include="AngularApp\Common\Models\ServerResponseModel.ts" />
+    <TypeScriptCompile Include="AngularApp\Common\Repositories\AllowAnonymousRepository.ts" />
+    <TypeScriptCompile Include="AngularAppSpec\Common\Spec\Repositories\AllowAnonymousRepositorySpec.ts" />
+    <TypeScriptCompile Include="AngularApp\Dtos\Person\AddressModel.ts" />
+    <TypeScriptCompile Include="AngularApp\Dtos\Person\ContactInformationModel.ts" />
+    <TypeScriptCompile Include="AngularApp\Dtos\Person\NameModel.ts" />
+    <TypeScriptCompile Include="AngularApp\Dtos\Person\PhoneInformationModel.ts" />
+    <TypeScriptCompile Include="AngularApp\Dtos\Reference\Anonymous\GuidForLetterOfRecommendationModel.ts" />
+    <TypeScriptCompile Include="AngularApp\Dtos\Reference\Anonymous\InformationForReferenceFormModel.ts" />
+    <TypeScriptCompile Include="AngularApp\Dtos\Reference\Anonymous\LetterOfRecommendationModel.ts" />
+    <TypeScriptCompile Include="AngularApp\Dtos\Reference\Anonymous\ReferencePersonalInformationModel.ts" />
+    <TypeScriptCompile Include="AngularApp\ApplicationEvaluator\Dashboard\Controllers\EvaluateApplicantsDashboardCtrl.ts" />
+    <TypeScriptCompile Include="AngularApp\Applicant\Dashboard\Controllers\ApplicantDashboardCtrl.ts" />
+    <TypeScriptCompile Include="AngularAppSpec\Applicant\Dashboard\Spec\Controllers\ApplicantDashboardCtrlSpec.ts" />
+    <TypeScriptCompile Include="AngularApp\Common\Models\UserInformationModel.ts" />
+    <TypeScriptCompile Include="AngularApp\Common\Repositories\AuthRequiredRepository.ts" />
+    <TypeScriptCompile Include="AngularApp\Common\Services\UiServices\AlertHelperService.ts" />
+    <TypeScriptCompile Include="AngularApp\Common\Services\UserInformation\SessionCookieService.ts" />
+    <TypeScriptCompile Include="AngularApp\Common\Services\UserInformation\UserInformationLocalStore.ts" />
+    <TypeScriptCompile Include="AngularApp\Common\Services\UserInformation\UserInformationService.ts" />
+    <TypeScriptCompile Include="AngularApp\Common\Services\Utilities\CreateYearArrayService.ts" />
+    <TypeScriptCompile Include="AngularApp\Common\Services\Utilities\LocalStorageServiceProvider.ts" />
+    <TypeScriptCompile Include="AngularApp\Common\Services\Utilities\ScriptjsValue.ts" />
+    <TypeScriptCompile Include="AngularApp\Common\Services\Utilities\ZxcvbnService.ts" />
+    <TypeScriptCompile Include="AngularAppSpec\Common\Spec\Repositories\AuthRequiredRepository.ts" />
+    <TypeScriptCompile Include="AngularAppSpec\Common\Spec\Services\UiServices\AlertHelperServiceSpec.ts" />
+    <TypeScriptCompile Include="AngularAppSpec\Common\Spec\Services\UserInformation\SessionCookieServiceSpec.ts" />
+    <TypeScriptCompile Include="AngularAppSpec\Common\Spec\Services\UserInformation\UserInformationLocalStoreSpec.ts" />
+    <TypeScriptCompile Include="AngularAppSpec\Common\Spec\Services\UserInformation\UserInformationServiceSpec.ts" />
+    <TypeScriptCompile Include="AngularAppSpec\Common\Spec\Services\Utilities\CreateYearArrayServiceSpec.ts" />
+    <TypeScriptCompile Include="AngularAppSpec\Common\Spec\Services\Utilities\OutsideService\AngularLocalStorageSpec.ts" />
+    <TypeScriptCompile Include="AngularApp\ApplicationEvaluator\ManageAccount\Controllers\ManageAccountEvaluateApplicantsCtrl.ts" />
+    <TypeScriptCompile Include="AngularApp\ApplicationEvaluator\NavBar\Controllers\EvaluateApplicantsNavBarCtrl.ts" />
+    <TypeScriptCompile Include="AngularApp\ApplicationEvaluator\NavBar\Directives\EvaluateApplicantsNavBarDirective.ts" />
+    <TypeScriptCompile Include="AngularAppSpec\ApplicationEvaluator\NavBar\Spec\Controllers\EvaluateApplicantsNavBarSpec.ts" />
+    <TypeScriptCompile Include="AngularApp\ApplicationEvaluator\PendingConfirmation\Controllers\PendingConfirmationCtrl.ts" />
+    <TypeScriptCompile Include="AngularApp\Home\Controllers\HomeCtrl.ts" />
+    <TypeScriptCompile Include="AngularApp\Main\Register.ts" />
+    <TypeScriptCompile Include="AngularApp\Main\Routing.ts" />
+    <TypeScriptCompile Include="AngularAppSpec\Main\Spec\TrivialTestOfEnvironment.ts" />
+    <TypeScriptCompile Include="AngularApp\Person\ContactInformation\Controllers\ContactInformationInputCtrl.ts" />
+    <TypeScriptCompile Include="AngularApp\Person\ContactInformation\Controllers\ContactInformationModalInputCtrl.ts" />
+    <TypeScriptCompile Include="AngularApp\Person\ContactInformation\Services\ContactInformationServices.ts" />
+    <TypeScriptCompile Include="AngularAppSpec\Person\ContactInformation\Spec\Controllers\ContactInformationInputCtrlSpec.ts" />
+    <TypeScriptCompile Include="AngularAppSpec\Person\ContactInformation\Spec\Services\ContactInformationServicesSpec.ts" />
+    <TypeScriptCompile Include="AngularApp\Reference\LetterOfRecommendation\Anon\Controllers\AnonReferencePersonalInfoModalCtrl.ts" />
+    <TypeScriptCompile Include="AngularApp\Reference\LetterOfRecommendation\Anon\Controllers\RecommendAnonCtrl.ts" />
+    <TypeScriptCompile Include="AngularApp\Reference\LetterOfRecommendation\Anon\Services\RecommendAnonService.ts" />
+    <TypeScriptCompile Include="AngularApp\UserAccount\ChangeEmail\Controllers\ConfirmCancelCtrl.ts" />
+    <TypeScriptCompile Include="AngularApp\UserAccount\ChangeEmail\Controllers\ConfirmCtrl.ts" />
+    <TypeScriptCompile Include="AngularApp\UserAccount\ChangeEmail\Models\VerifyEmailModel.ts" />
+    <TypeScriptCompile Include="AngularApp\UserAccount\ChangeEmail\Repositories\ChangeEmailRepository.ts" />
+    <TypeScriptCompile Include="AngularAppSpec\UserAccount\ChangeEmail\Spec\Controllers\ConfirmCancelCtrlSpec.ts" />
+    <TypeScriptCompile Include="AngularAppSpec\UserAccount\ChangeEmail\Spec\Controllers\ConfirmCtrlSpec.ts" />
+    <TypeScriptCompile Include="AngularAppSpec\UserAccount\ChangeEmail\Spec\Repositories\ChangeEmailRepositorySpec.ts" />
+    <TypeScriptCompile Include="AngularApp\UserAccount\Login\Directives\LoginFieldsDirective.ts" />
+    <TypeScriptCompile Include="AngularApp\UserAccount\Manage\Controllers\ManageUserCtrl.ts" />
+    <TypeScriptCompile Include="AngularApp\UserAccount\Manage\Directives\ChangeEmailDirective.ts" />
+    <TypeScriptCompile Include="AngularApp\UserAccount\Manage\Directives\ChangePasswordDirective.ts" />
+    <TypeScriptCompile Include="AngularApp\UserAccount\Manage\Directives\ManageUserDirective.ts" />
+    <TypeScriptCompile Include="AngularApp\UserAccount\Manage\Models\ChangeEmailModel.ts" />
+    <TypeScriptCompile Include="AngularApp\UserAccount\Manage\Models\ChangePasswordModel.ts" />
+    <TypeScriptCompile Include="AngularAppSpec\UserAccount\Manage\Spec\Controllers\ManageUserCtrlSpec.ts" />
+    <TypeScriptCompile Include="AngularAppSpec\UserAccount\Manage\Spec\Directives\ChangeEmailDirectiveSpec.ts" />
+    <TypeScriptCompile Include="AngularAppSpec\UserAccount\Manage\Spec\Directives\ChangePasswordDirectiveSpec.ts" />
+    <TypeScriptCompile Include="AngularApp\UserAccount\PasswordStrength\Directives\PasswordFieldAndMeterDirective.ts" />
+    <TypeScriptCompile Include="AngularApp\UserAccount\PasswordStrength\Models\PasswordScore.ts" />
+    <TypeScriptCompile Include="AngularApp\UserAccount\PasswordStrength\Services\PasswordStrengthChecker.ts" />
+    <TypeScriptCompile Include="AngularAppSpec\UserAccount\PasswordStrength\Spec\Directives\PasswordFieldAndMeterDirectiveSpec.ts" />
+    <TypeScriptCompile Include="AngularAppSpec\UserAccount\PasswordStrength\Spec\Services\PasswordStrengthCheckerSpec.ts" />
+    <TypeScriptCompile Include="AngularApp\UserAccount\Login\Controllers\LoginCtrl.ts" />
+    <TypeScriptCompile Include="AngularApp\UserAccount\Login\Directives\LoginScreenDirective.ts" />
+    <TypeScriptCompile Include="AngularApp\UserAccount\Login\Models\LoginModel.ts" />
+    <TypeScriptCompile Include="AngularApp\UserAccount\Login\Models\LoginServerResponseModel.ts" />
+    <TypeScriptCompile Include="AngularApp\UserAccount\Login\Repositories\LoginRepository.ts" />
+    <TypeScriptCompile Include="AngularApp\UserAccount\Login\Services\LoginServices.ts" />
+    <TypeScriptCompile Include="AngularAppSpec\UserAccount\Login\Spec\Controllers\LoginCtrlSpec.ts" />
+    <TypeScriptCompile Include="AngularAppSpec\UserAccount\Login\Spec\Directives\LoginScreenDirectiveSpec.ts" />
+    <TypeScriptCompile Include="AngularAppSpec\UserAccount\Login\Spec\Repositories\LoginRepositorySpec.ts" />
+    <TypeScriptCompile Include="AngularAppSpec\UserAccount\Login\Spec\Services\LoginServicesSpec.ts" />
+    <TypeScriptCompile Include="AngularApp\UserAccount\RegisterApplicant\Controllers\RegisterApplicantCtrl.ts" />
+    <TypeScriptCompile Include="AngularApp\UserAccount\RegisterApplicant\Models\RegisterInputModel.ts" />
+    <TypeScriptCompile Include="AngularAppSpec\UserAccount\RegisterApplicant\Spec\Controllers\RegisterApplicantCtrlSpec.ts" />
+    <TypeScriptCompile Include="AngularApp\UserAccount\RegisterApplicationEvaluator\Controllers\RegisterApplicationEvaluatorCtrl.ts" />
+    <TypeScriptCompile Include="AngularAppSpec\UserAccount\RegisterApplicationEvaluator\Spec\Controllers\RegisterApplicationEvaluatorCtrlSpec.ts" />
+    <TypeScriptCompile Include="AngularApp\UserAccount\ResetPassword\Controllers\ResetPasswordCtrl.ts" />
+    <TypeScriptCompile Include="AngularApp\UserAccount\ResetPassword\Controllers\ResetPasswordRequestCtrl.ts" />
+    <TypeScriptCompile Include="AngularApp\UserAccount\ResetPassword\Models\ChangePasswordFromResetKeyModel.ts" />
+    <TypeScriptCompile Include="AngularApp\UserAccount\ResetPassword\Models\ResetPasswordThruEmailModel.ts" />
+    <TypeScriptCompile Include="AngularApp\UserAccount\ResetPassword\Repositories\ResetPasswordRepository.ts" />
+    <TypeScriptCompile Include="AngularAppSpec\UserAccount\ResetPassword\Spec\Controllers\ResetPasswordCtrlSpec.ts" />
+    <TypeScriptCompile Include="AngularAppSpec\UserAccount\ResetPassword\Spec\Controllers\ResetPasswordRequestCtrlSpec.ts" />
+    <TypeScriptCompile Include="AngularAppSpec\UserAccount\ResetPassword\Spec\Repositories\ResetPasswordRepositorySpec.ts" />
+    <TypeScriptCompile Include="Scripts\typings\angular-ui-bootstrap\angular-ui-bootstrap.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\angularjs\angular-animate.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\angularjs\angular-cookies.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\angularjs\angular-mocks.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\angularjs\angular-resource.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\angularjs\angular-route.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\angularjs\angular-sanitize.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\angularjs\angular.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\jasmine\jasmine.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\jquery\jquery.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\sinon\sinon.d.ts" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>55595</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44309/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

@@ -1,0 +1,150 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{ECDEAF3E-E3C3-4C8E-812A-3E1E0E91D793}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BohFoundation.MembershipProvider</RootNamespace>
+    <AssemblyName>BohFoundation.MembershipProvider</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper, Version=3.2.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\AutoMapper.3.2.1\lib\net40\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="AutoMapper.Net4">
+      <HintPath>..\packages\AutoMapper.3.2.1\lib\net40\AutoMapper.Net4.dll</HintPath>
+    </Reference>
+    <Reference Include="BrockAllen.MembershipReboot, Version=7.4.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\BrockAllen.MembershipReboot.7.4.1\lib\net45\BrockAllen.MembershipReboot.dll</HintPath>
+    </Reference>
+    <Reference Include="BrockAllen.MembershipReboot.WebHost">
+      <HintPath>..\packages\BrockAllen.MembershipReboot.WebHost.7.1.0\lib\net45\BrockAllen.MembershipReboot.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Ninject">
+      <HintPath>..\packages\Ninject.3.2.2.0\lib\net45-full\Ninject.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.IdentityModel" />
+    <Reference Include="System.IdentityModel.Services" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Infrastructure\MembershipModule.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\Contexts\MembershipRebootContext.cs" />
+    <Compile Include="Repositories\Repos\MembershipRebootCustomQueries.cs" />
+    <Compile Include="Repositories\Contexts\UserAccountContext.cs" />
+    <Compile Include="Repositories\Interfaces\IMembershipRebootCustomQueries.cs" />
+    <Compile Include="Repositories\Repos\UserAccountRepository.cs" />
+    <Compile Include="UserManagement\Admin\Implementation\ConfirmApplicationEvaluator.cs" />
+    <Compile Include="UserManagement\Admin\Implementation\InviteApplicationEvaluator.cs" />
+    <Compile Include="UserManagement\Admin\Interfaces\IConfirmApplicationEvaluator.cs" />
+    <Compile Include="UserManagement\Helpers\Implementation\CreateUserClaimCollection.cs" />
+    <Compile Include="UserManagement\Helpers\Interfaces\ICreateUserClaimCollection.cs" />
+    <Compile Include="UserManagement\Manage\Implementation\ChangeApplicantToFinalizedApplicantService.cs" />
+    <Compile Include="UserManagement\Manage\Implementation\ChangeEmailService.cs" />
+    <Compile Include="UserManagement\Manage\Implementation\ChangePasswordFromEmailKeyService.cs" />
+    <Compile Include="UserManagement\Manage\Implementation\ChangePasswordService.cs" />
+    <Compile Include="UserManagement\Helpers\Implementation\CreateClaimsListFromAccount.cs" />
+    <Compile Include="UserManagement\Manage\Implementation\LoginServices.cs" />
+    <Compile Include="UserManagement\Manage\Implementation\RegisterUserService.cs" />
+    <Compile Include="UserManagement\Manage\Implementation\UserManagementBase.cs" />
+    <Compile Include="UserManagement\Admin\Interfaces\IInviteApplicationEvaluator.cs" />
+    <Compile Include="UserManagement\Helpers\Interfaces\ICreateClaimsListFromAccount.cs" />
+    <Compile Include="UserManagement\Manage\Interfaces\IChangeEmailService.cs" />
+    <Compile Include="UserManagement\Manage\Interfaces\IChangePasswordFromEmailedKeyService.cs" />
+    <Compile Include="UserManagement\Manage\Interfaces\IChangePasswordService.cs" />
+    <Compile Include="UserManagement\Manage\Interfaces\IChangeApplicantToFinalizedApplicantService.cs" />
+    <Compile Include="UserManagement\Manage\Interfaces\ILoginServices.cs" />
+    <Compile Include="UserManagement\Manage\Interfaces\IRegisterUserService.cs" />
+    <Compile Include="UserManagement\MembershipRebootConfig.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BohFoundation.ApplicantsRepository\BohFoundation.ApplicantsRepository.csproj">
+      <Project>{87A67F28-8A4D-4382-BE0A-26174DE94773}</Project>
+      <Name>BohFoundation.ApplicantsRepository</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BohFoundation.Domain\BohFoundation.Domain.csproj">
+      <Project>{16160B03-BF31-4E20-846A-390E647BDC81}</Project>
+      <Name>BohFoundation.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BohFoundation.EntityFrameworkBaseClass\BohFoundation.EntityFrameworkBaseClass.csproj">
+      <Project>{D354609D-FB2D-46AE-AF5D-42F3A531F84D}</Project>
+      <Name>BohFoundation.EntityFrameworkBaseClass</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BohFoundation.PersonsRepository\BohFoundation.PersonsRepository.csproj">
+      <Project>{43A6C40F-BF33-4309-934F-04C9F9CED317}</Project>
+      <Name>BohFoundation.PersonsRepository</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BohFoundation.Utilities\BohFoundation.Utilities.csproj">
+      <Project>{5949917F-901A-4B7E-991A-AE9B1CD9AAB9}</Project>
+      <Name>BohFoundation.Utilities</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="UserManagement\Admin\TestingApplicationEvaluationsConfirmEtcApi.txt" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\AutoMapper.3.2.1\tools\AutoMapper.targets" Condition="Exists('..\packages\AutoMapper.3.2.1\tools\AutoMapper.targets')" />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,53 @@
+﻿<div class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="">Bulldog Scholarship Letters Of Recommendation</a>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="well well-sm">
+        <p>
+            <b>Thank you</b> for taking time to help the Bulldog Scholar Selection Committee with this difficult decision. Your letters of recommendation are an invaluable contribution to our process. There is a small chance that we may follow up with a phone call.
+        </p>
+    </div>
+    <h5>Letter of Recommendation Information</h5>
+    <div class="well well-sm">
+        <b>Applicant's Stated Relationship to You:</b>
+        <span class="pull-right">{{getInformationForReferenceFormModel().applicantsRelationshipToYou}}</span>
+        <br />
+        <b>Applicant's Name:</b>
+        <span class="pull-right">
+            {{getInformationForReferenceFormModel().applicantsName.lastName}}, {{getInformationForReferenceFormModel().applicantsName.firstName}}
+        </span>
+        <br />
+        <br />
+        <div data-ng-hide="mustCompletePersonalInformation()">
+            <b>Your name:</b>
+            <span class="pull-right">{{getInformationForReferenceFormModel().referencesName.lastName}}, {{getInformationForReferenceFormModel().referencesName.firstName}}</span>
+            <br />
+            <b>Your Information Last Updated:</b>
+            <span class="pull-right">{{getInformationForReferenceFormModel().phoneNumberLastUpdated | date: 'longDate'}}</span>
+            <br />
+            <button class="btn btn-sm btn-primary" data-ng-click="editPersonalInformation()" data-ng-disable="processing">My phone number has changed since {{getInformationForReferenceFormModel().phoneNumberLastUpdated | date: 'shortDate'}}</button>
+            <br />
+        </div>
+    </div>
+    <div class="well" data-ng-show="mustCompletePersonalInformation()">
+        <p>Since this is the first time your email address has been used for a Bulldog Scholarship Letter of Recommendation we will need some information about you. We call about 5% of people who write letters of recommendation with additional questions.</p>
+        <br />
+        <button class="btn btn-primary" data-ng-click="editPersonalInformation()" data-ng-disable="processing">Add Personal Information</button>
+    </div>
+    <div class="alert alert-success" role="alert" data-ng-show="getInformationForReferenceFormModel().letterOfRecommendationAlreadyRecieved">
+        We have already got your Letter of Recommendation for this applicant. For confidentiality reasons, we cannot show you what you entered. You <b>can</b> replace your old letter with a new one if you wish by filling out the form below.
+    </div>
+    <div data-ng-hide="mustCompletePersonalInformation()">
+        <h5>Letter of Recommendation Input</h5>
+        <div class="well">
+            <div text-angular ng-model="letterOfRecommendation" ta-toolbar="[['h3','h4','p'],['bold','italics','underline','ul','ol']]" ta-toolbar-button-class="btn btn-sm btn-success"></div>
+        </div>
+        <span class="pull-right">
+            <button class="btn btn-primary" data-ng-click="postLetterOfRecommendation()" data-ng-disable="processing">Submit Letter of Recommendation</button>
+        </span>
+    </div>
+</div>

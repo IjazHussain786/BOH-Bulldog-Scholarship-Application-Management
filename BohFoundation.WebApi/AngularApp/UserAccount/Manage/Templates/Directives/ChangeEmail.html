@@ -1,0 +1,14 @@
+﻿<div class="well">Current Email Address: {{usersEmail()}}</div>
+<form role="form" name="changeEmailForm" class="form-horizontal" data-ui-keypress="{13:'changeEmail(changeEmailForm, changeEmailModel)'}">
+    <div class="form-group">
+        <label class="col-sm-4 control-label" for="newEmailAddress">New Email Address</label>
+        <div class="col-sm-8">
+            <input type="email" class="form-control" name="newEmailAddress" data-ng-model="changeEmailModel.newEmail" placeholder="New Email Address" required />
+        </div>
+    </div>
+</form>
+<div class="row">
+    <div class="col-sm-push-4 col-sm-2 col-xs-2">
+        <button class="btn btn-primary" data-ng-click="changeEmail(changeEmailForm, changeEmailModel)" data-ng-disabled="changeEmailForm.$invalid || processing">Change Email Address</button>
+    </div>
+</div>

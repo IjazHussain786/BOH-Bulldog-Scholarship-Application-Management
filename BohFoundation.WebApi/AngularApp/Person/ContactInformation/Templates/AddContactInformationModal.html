@@ -1,0 +1,64 @@
+﻿<div class="modal-header">
+    Contact Information
+</div>
+<div class="modal-body">
+    <div class="well">
+        <div class="container">
+            <form role="form" name="contactInformationForm" class="form-horizontal" data-ui-keypress="{13:'ok(contactInformationForm)'}">
+                <div class="form-group">
+                    <label class="control-label">Email Address</label>
+                    <div class="">
+                        <p class="form-control-static">{{contactInformationModel.emailAddress}}</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="phoneNumber">Phone Number</label>
+                    <div class="">
+                        <input type="number" class="form-control" name="phoneNumber" data-ng-model="contactInformationModel.phoneInformation.phoneNumber" placeholder="Phone Number" required maxlength="10" />
+                    </div>
+                    <span>Phone Number: {{contactInformationModel.phoneInformation.phoneNumber | phoneNumberFormat}}</span>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="bestTimeToContact">Best Time To Contact You By Phone</label>
+                    <div class="">
+                        <select class="form-control" name="bestTimeToContact" data-ng-model="contactInformationModel.phoneInformation.bestTimeToContactByPhone" data-ng-options="opt as (opt | timeOfDayEnum) for opt in bestTimeToContactByPhone" required></select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="streetAddress1">Street Address 1</label>
+                    <div class="">
+                        <input type="tel" class="form-control" name="streetAddress1" data-ng-model="contactInformationModel.address.streetAddress1" placeholder="Street Address" required />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="streetAddress2">Street Address 2</label>
+                    <div class="">
+                        <input type="tel" class="form-control" name="streetAddress2" data-ng-model="contactInformationModel.address.streetAddress2" placeholder="Street Address" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="city">City</label>
+                    <div class="">
+                        <input type="tel" class="form-control" name="city" data-ng-model="contactInformationModel.address.city" placeholder="City" required />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="state">State</label>
+                    <div class="">
+                        <input type="text" class="form-control" name="state" data-ng-model="contactInformationModel.address.state" placeholder="State" required />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="zipCode">Zipcode</label>
+                    <div class="">
+                        <input type="number" class="form-control" name="zipCode" data-ng-model="contactInformationModel.address.zipCode" placeholder="Zipcode" required maxlength="5" />
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" ng-click="ok(contactInformationForm)" data-ng-disabled="contactInformationForm.$invalid">Save Contact Information</button>
+    <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+</div>

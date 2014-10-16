@@ -1,0 +1,28 @@
+﻿<div class="container">
+    <div class="col-sm-push-4 col-sm-8 col-xs-8">
+        <h4>Manage Bulldog Scholarship Account</h4>
+    </div>
+</div>
+<div class="container body-content">
+    <accordion close-others="true">
+        <accordion-group is-open="emailIsOpen">
+            <accordion-heading>
+                Change Your Email Address<i class="pull-right glyphicon" data-ng-class="{'glyphicon-chevron-down': emailIsOpen, 'glyphicon-chevron-right': !emailIsOpen}"></i>
+            </accordion-heading>
+            <change-email></change-email>
+        </accordion-group>
+        <accordion-group is-open="passwordIsOpen">
+            <accordion-heading>
+                Change Your Password <i class="pull-right glyphicon" data-ng-class="{'glyphicon-chevron-down': passwordIsOpen, 'glyphicon-chevron-right': !passwordIsOpen}"></i>
+            </accordion-heading>
+            <change-password></change-password>
+        </accordion-group>
+        <accordion-group is-open="rememberDevice" data-ng-show="deviceRemembers()">
+            <accordion-heading>
+                Do not remember me on this device anymore.<i class="pull-right glyphicon" data-ng-class="{'glyphicon-chevron-down': rememberDevice, 'glyphicon-chevron-right': !rememberDevice}"></i>
+            </accordion-heading>
+            <button class="btn btn-primary" data-ng-click="deleteRememberMe()">Don't remember me!</button>
+        </accordion-group>
+
+    </accordion>
+</div>

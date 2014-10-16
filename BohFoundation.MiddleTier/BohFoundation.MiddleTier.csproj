@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{836B307A-6BA9-4DFC-95A5-C2C91C7AA87C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BohFoundation.MiddleTier</RootNamespace>
+    <AssemblyName>BohFoundation.MiddleTier</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper">
+      <HintPath>..\packages\AutoMapper.3.2.1\lib\net40\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="AutoMapper.Net4">
+      <HintPath>..\packages\AutoMapper.3.2.1\lib\net40\AutoMapper.Net4.dll</HintPath>
+    </Reference>
+    <Reference Include="Ninject">
+      <HintPath>..\packages\Ninject.3.2.2.0\lib\net45-full\Ninject.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ApplicantsOrchestration\Implementations\ApplicantReferenceOrchestration.cs" />
+    <Compile Include="ApplicantsOrchestration\Implementations\FinalizeApplicationOrchestration.cs" />
+    <Compile Include="ApplicantsOrchestration\Implementations\Helpers\CreateEmailBodyForApplicantReferenceRequest.cs" />
+    <Compile Include="ApplicantsOrchestration\Interfaces\Helpers\ICreateEmailBodyForApplicantReferenceRequest.cs" />
+    <Compile Include="ApplicantsOrchestration\Interfaces\IApplicantReferenceOrchestration.cs" />
+    <Compile Include="ApplicantsOrchestration\Interfaces\IFinalizeApplicationOrchestration.cs" />
+    <Compile Include="MiddleTierModule.cs" />
+    <Compile Include="ReferencesOrchestration\Implementations\AnonymousLetterOfRecommendationOrchestration.cs" />
+    <Compile Include="ReferencesOrchestration\Implementations\Helpers\GenerateLetterOfRecommendationKey.cs" />
+    <Compile Include="ReferencesOrchestration\Interfaces\Helpers\IGenerateLetterOfRecommendationKey.cs" />
+    <Compile Include="ReferencesOrchestration\Interfaces\IAnonymousLetterOfRecommendationOrchestration.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BohFoundation.ApplicantsRepository\BohFoundation.ApplicantsRepository.csproj">
+      <Project>{87a67f28-8a4d-4382-be0a-26174de94773}</Project>
+      <Name>BohFoundation.ApplicantsRepository</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BohFoundation.AzureStorage\BohFoundation.AzureStorage.csproj">
+      <Project>{56152a8b-4f10-487e-b8b7-ab5f9162bb12}</Project>
+      <Name>BohFoundation.AzureStorage</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BohFoundation.Domain\BohFoundation.Domain.csproj">
+      <Project>{16160b03-bf31-4e20-846a-390e647bdc81}</Project>
+      <Name>BohFoundation.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BohFoundation.MembershipProvider\BohFoundation.MembershipProvider.csproj">
+      <Project>{ecdeaf3e-e3c3-4c8e-812a-3e1e0e91d793}</Project>
+      <Name>BohFoundation.MembershipProvider</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BohFoundation.ReferencesRepository\BohFoundation.ReferencesRepository.csproj">
+      <Project>{8F7F7B00-9300-4E48-9E3D-AD74B9948C42}</Project>
+      <Name>BohFoundation.ReferencesRepository</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BohFoundation.Utilities\BohFoundation.Utilities.csproj">
+      <Project>{5949917f-901a-4b7e-991a-ae9b1cd9aab9}</Project>
+      <Name>BohFoundation.Utilities</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\AutoMapper.3.2.1\tools\AutoMapper.targets" Condition="Exists('..\packages\AutoMapper.3.2.1\tools\AutoMapper.targets')" />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,28 @@
+﻿<div class="modal-header">
+    Activity Information
+</div>
+<div class="modal-body">
+    <div class="well">
+        <div class="container">
+            <form role="form" name="activityInformationForm" class="form-horizontal">
+                <div class="form-group">
+                    <label class="control-label" for="name">Name of the activity</label>
+                    <div class="">
+                        <input type="text" class="form-control" name="name" data-ng-model="activityModel.name" placeholder="What is the name of the activity?" required />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="shortSummaryOfWhatIsInvolved">What is involved in your activity?</label>
+                    <div class="">
+                        <textarea class="form-control" rows="5" name="shortSummaryOfWhatIsInvolved" data-ng-model="activityModel.shortSummaryOfWhatIsInvolved" placeholder="Explain what you do at your activity in 280 characters or less." required maxlength="280"></textarea>
+                    </div>
+                    <p data-ng-hide="activityModel.shortSummaryOfWhatIsInvolved == undefined || activityModel.shortSummaryOfWhatIsInvolved.length < 200">{{activityModel.shortSummaryOfWhatIsInvolved.length}}/280</p>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" ng-click="ok(activityInformationForm)" data-ng-disabled="activityInformationForm.$invalid">Save Activity Information</button>
+    <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+</div>

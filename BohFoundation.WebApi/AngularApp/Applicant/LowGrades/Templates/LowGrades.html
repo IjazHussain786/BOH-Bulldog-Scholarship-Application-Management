@@ -1,0 +1,33 @@
+﻿<applicant-nav-bar></applicant-nav-bar>
+<div class="container">
+    <div class="jumbotron">
+        <div class="container">
+            <p>With your GPA of {{getGpa()}} you need to explain your bottom {{getNumberOfLowGradesTotalNeeded()}} grades.</p>
+            <p>You need to add {{getNumberOfLowGradesRemaining()}} more explanations.</p>
+            <p class="text-danger" data-ng-hide="getArraySameAsServer()">Your work has not been saved! You can save at any point and come back later.</p>
+        </div>
+    </div>
+    <table class="table table-striped" data-ng-hide="getLowGradeArray().length == 0">
+        <tr>
+            <th>Class</th>
+            <th>Grade</th>
+            <th>AP</th>
+            <th>Year</th>
+            <th>Explanation</th>
+            <th>Operations</th>
+        </tr>
+        <tr data-ng-repeat="lowGrade in getLowGradeArray()">
+            <td>{{lowGrade.classTitle}}</td>
+            <td>{{lowGrade.grade}}</td>
+            <td><span class="glyphicon glyphicon-ok" data-ng-show="lowGrade.wasAp"></span></td>
+            <td>{{lowGrade.yearOfHighSchool | yearOfHighSchoolEnum}}</td>
+            <td>{{lowGrade.explanation}}</td>
+            <td>
+                <button class="btn btn-sm btn-primary" data-ng-click="editLowGrade($index)"><span class="glyphicon glyphicon-edit"></span></button>
+                <button class="btn btn-sm btn-danger" data-ng-click="deleteLowGrade($index)"><span class="glyphicon glyphicon-trash"></span></button>
+            </td>
+        </tr>
+    </table>
+    <button class="btn btn-primary" ng-click="addLowGrade()" data-ng-disabled="getNumberOfLowGradesRemaining() == 0">Add new low grade</button>
+    <button class="btn btn-info" ng-click="postLowGrades()" data-ng-disabled="processing || getArraySameAsServer()">Save</button>
+</div>

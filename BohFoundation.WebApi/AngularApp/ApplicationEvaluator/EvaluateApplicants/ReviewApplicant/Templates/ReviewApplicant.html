@@ -1,0 +1,275 @@
+﻿<evaluate-applicants-nav-bar></evaluate-applicants-nav-bar>
+
+<div class="container">
+    <h3 data-ng-hide="getGeneralInformation() == undefined">{{getGeneralInformation().name.firstName}} {{getGeneralInformation().name.lastName}}'s Application</h3>
+    <h3 data-ng-show="getGeneralInformation() == undefined">Application Loading...</h3>
+    <div class="row">
+        <div class="col-md-6 col-sm-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4>General Information</h4>
+                </div>
+                <ul class="list-group" data-ng-hide="getGeneralInformation() == undefined">
+                    <li class="list-group-item">
+                        <b>Birthdate</b> <span class="pull-right">{{getGeneralInformation().personalInformation.birthdate | date: 'longDate'}}</span>
+                    </li>
+                    <li class="list-group-item">
+                        <b>Email Address</b><span class="pull-right">{{getGeneralInformation().contactInformation.emailAddress}}</span>
+                    </li>
+                    <li class="list-group-item">
+                        <b>Phone Number</b><span class="pull-right">{{getGeneralInformation().contactInformation.phoneInformation.phoneNumber | phoneNumberFormat}}</span><br />
+                        <b>Best Time To Contact</b><span class="pull-right">{{getGeneralInformation().contactInformation.phoneInformation.bestTimeToContactByPhone | timeOfDayEnum}}</span>
+                    </li>
+                    <li class="list-group-item text-right">
+                        <span class="pull-left">
+                            <b>Address</b>
+                        </span>
+                        {{getGeneralInformation().contactInformation.address.streetAddress1}} <br />
+                        <span data-ng-hide="getGeneralInformation().contactInformation.address.streetAddress2 == '' || getGeneralInformation().contactInformation.address.streetAddress2 == undefined">{{getGeneralInformation().contactInformation.address.streetAddress2}} <br /> </span>
+                        {{getGeneralInformation().contactInformation.address.city}} {{getGeneralInformation().contactInformation.address.state}}, {{getGeneralInformation().contactInformation.address.zipCode}}
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-6 col-sm-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4>Family Information</h4>
+                </div>
+                <ul class="list-group" data-ng-hide="getGeneralInformation() == undefined">
+                    <li class="list-group-item">
+                        <b>Number Of People In Household</b><span class="pull-right"> {{getGeneralInformation().familyInformation.numberOfPeopleInHousehold}}</span>
+                    </li>
+                    <li class="list-group-item">
+                        <b>Yearly Income Range</b><span class="pull-right">{{getGeneralInformation().familyInformation.yearlyHouseholdIncomeRange | incomeRangeEnum}}</span>
+                    </li>
+                    <li class="list-group-item">
+                        <b>Highest Attained Degree in Home</b><span class="pull-right">{{getGeneralInformation().familyInformation.highestAttainedDegreeInHome | educationalDegreesEnum}}</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4 col-sm-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4>Academic Information</h4>
+                </div>
+                <ul class="list-group" data-ng-hide="getAcademicInformation() == undefined">
+                    <li class="list-group-item">
+                        <b>High School GPA</b><span class="pull-right"> {{getAcademicInformation().basicAcademicInformation.gpa}}</span>
+                    </li>
+                    <li class="list-group-item">
+                        <b>Career Choice</b><span class="pull-right">{{getAcademicInformation().basicAcademicInformation.careerChoice}}</span>
+                    </li>
+                    <li class="list-group-item">
+                        <b>Next School</b><span class="pull-right">{{getAcademicInformation().basicAcademicInformation.probableNextSchool}}</span>
+                    </li>
+                    <li class="list-group-item">
+                        <b>Class Rank</b><span class="pull-right"> {{getAcademicInformation().basicAcademicInformation.classRank.classNumericalRank}} / {{getAcademicInformation().basicAcademicInformation.classRank.graduatingClassSize}}</span>
+                    </li>
+                    <li class="list-group-item">
+                        <b>Percentile Rank</b><span class="pull-right">{{getAcademicInformation().basicAcademicInformation.classRank.classPercentile}}</span>
+                    </li>
+                    <li class="list-group-item text-right">
+                        <span class="pull-left"><b>View Transcript</b></span><button class="btn btn-primary btn-sm" data-ng-click="getTranscript()"><span class="glyphicon glyphicon-folder-open"></span></button>
+                    </li>
+                    <li class="list-group-item text-right">
+                        <span class="pull-left">
+                            <b>Transcript Matches</b>
+                        </span>
+                        <span data-ng-click="confirmTranscript()">
+                            <button class="btn btn-sm btn-success" data-ng-show="getTranscriptConfirmedModel().confirmed"><span class="glyphicon glyphicon-ok"></span></button>
+                            <button class="btn btn-sm btn-warning" data-ng-show="getTranscriptConfirmedModel().notChecked"><span class="glyphicon glyphicon-unchecked"></span></button>
+                            <button class="btn btn-sm btn-danger" data-ng-show="getTranscriptConfirmedModel().notCorrect"><span class="glyphicon glyphicon-remove"></span></button>
+                        </span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-8 col-sm-8">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4>Low Grades</h4>
+                </div>
+                <table class="table table-striped" data-ng-hide="getAcademicInformation() == undefined || getAcademicInformation().lowGrades.length == 0">
+                    <tr>
+                        <th>Class</th>
+                        <th>Grade</th>
+                        <th>AP</th>
+                        <th>Year of High School</th>
+                        <th>Explanation</th>
+                    </tr>
+                    <tr data-ng-repeat="lowGrade in getAcademicInformation().lowGrades">
+                        <td>{{lowGrade.classTitle}}</td>
+                        <td>{{lowGrade.grade}}</td>
+                        <td><span data-ng-class="lowGrade.wasAp ? 'glyphicon glyphicon-ok' : 'glyphicon glyphicon-remove'"></span></td>
+                        <td>{{lowGrade.yearOfHighSchool | yearOfHighSchoolEnum}}</td>
+                        <td>{{lowGrade.explanation}}</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-7 col-sm-7">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4>Jobs</h4>
+                </div>
+                <table class="table table-striped" data-ng-hide="getExtracurricularActivitiesInformation() == undefined">
+                    <tr data-ng-show="getExtracurricularActivitiesInformation().paidWork == false">
+                        <th colspan="2">Paid Employment</th>
+                        <th><span class="glyphicon glyphicon-remove"></span></th>
+                    </tr>
+                    <tr data-ng-hide="getExtracurricularActivitiesInformation().paidWork == false">
+                        <th>Employer</th>
+                        <th>Position</th>
+                        <th>Responsibilities</th>
+                    </tr>
+                    <tr data-ng-repeat="job in getExtracurricularActivitiesInformation().jobs" data-ng-hide="getExtracurricularActivitiesInformation().paidWork == false">
+                        <td>{{job.employer}}</td>
+                        <td>{{job.position}}</td>
+                        <td>{{job.shortSummaryOfWorkResponsibilities}}</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="col-md-5 col-sm-5">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4>Activities</h4>
+                </div>
+                <table class="table table-striped" data-ng-hide="getExtracurricularActivitiesInformation() == undefined">
+                    <tr data-ng-show="getExtracurricularActivitiesInformation().hasNonPaidActivities == false">
+                        <th>Has Nonpaid Activities</th>
+                        <th><span class="glyphicon glyphicon-remove"></span></th>
+                    </tr>
+                    <tr data-ng-hide="getExtracurricularActivitiesInformation().hasNonPaidActivities == false">
+                        <th>Activity</th>
+                        <th>What is Involved</th>
+                    </tr>
+                    <tr data-ng-repeat="activity in getExtracurricularActivitiesInformation().activities" data-ng-hide="getExtracurricularActivitiesInformation().hasNonPaidActivities == false">
+                        <td>{{activity.name}}</td>
+                        <td>{{activity.shortSummaryOfWhatIsInvolved}}</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 col-sm-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4>Your First Impression</h4>
+                </div>
+                <ul class="list-group" data-ng-hide="getGeneralInformation() == undefined">
+                    <li class="list-group-item">
+                        <b>Rating</b><span class="pull-right">{{getGeneralInformation().yourFirstImpressionRating.ratingEnum | ratingEnum}}</span>
+                    </li>
+                    <li class="list-group-item">
+                        <b>Explanation</b><span class="pull-right">{{getGeneralInformation().yourFirstImpressionRating.explanation}}</span>
+                    </li>
+                    <li class="list-group-item text-right">
+                        <span class="pull-left"><b>Edit Your First Impression</b></span><button class="btn btn-primary btn-sm" data-ng-click="firstImpressionRating()"><span class="glyphicon glyphicon-edit"></span></button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-5 col-sm-5">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4>Essays</h4>
+                </div>
+                <table class="table table-striped" data-ng-hide="getEssayAndLetterOfRecommendationSummaries() == undefined">
+                    <tr>
+                        <th>Topic</th>
+                        <th>Character Length</th>
+                        <th>Rating</th>
+                        <th>View and Rate</th>
+                    </tr>
+                    <tr data-ng-repeat="essay in getEssayAndLetterOfRecommendationSummaries().essaySummaries">
+                        <td>{{essay.titleOfEssay}}</td>
+                        <td>{{essay.essayCharacterLength}}</td>
+                        <td>{{essay.yourRating.ratingEnum | ratingEnum}}</td>
+                        <td><span class="pull-right"><button class="btn btn-primary btn-sm" data-ng-click="viewAndRateEssay($index)"><span class="glyphicon glyphicon-folder-open"></span></button></span></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="col-md-7 col-sm-7">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4>Letters Of Recommendation</h4>
+                </div>
+                <table class="table table-striped">
+                    <tr>
+                        <th>Reference Name</th>
+                        <th>Occupation</th>
+                        <th>Phone Number</th>
+                        <th>Best Time to Contact</th>
+                        <th>View Letter</th>
+                    </tr>
+                    <tr data-ng-repeat="lor in getEssayAndLetterOfRecommendationSummaries().letterOfRecommendationSummaries">
+                        <th>{{lor.referencePersonalInformation.name.lastName}}, {{lor.referencePersonalInformation.name.firstName}}</th>
+                        <th>{{lor.referencePersonalInformation.occupation}}</th>
+                        <th>{{lor.referencePersonalInformation.phoneInformationDto.phoneNumber | phoneNumberFormat}}</th>
+                        <th>{{lor.referencePersonalInformation.phoneInformationDto.bestTimeToContactByPhone | timeOfDayEnum}}</th>
+                        <td><span class="pull-right"><button class="btn btn-primary btn-sm" data-ng-click="viewLetterOfRecommendation($index)"><span class="glyphicon glyphicon-folder-open"></span></button></span></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 col-sm-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4>Your Final Overall Rating</h4>
+                </div>
+                <ul class="list-group" data-ng-hide="getGeneralInformation() == undefined">
+                    <li class="list-group-item">
+                        <b>Rating</b><span class="pull-right">{{getGeneralInformation().yourFinalOverallRating.ratingEnum | ratingEnum}}</span>
+                    </li>
+                    <li class="list-group-item">
+                        <b>Explanation</b><span class="pull-right">{{getGeneralInformation().yourFinalOverallRating.explanation}}</span>
+                    </li>
+                    <li class="list-group-item text-right">
+                        <span class="pull-left"><b>Edit Your Final Overall Rating</b></span><button class="btn btn-primary btn-sm" data-ng-click="finalOverallRating()"><span class="glyphicon glyphicon-edit"></span></button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="row" data-ng-show="canGotoNextRandomApplicant()">
+        <div class="col-md-12 col-sm-12">
+            <div class="panel panel-success">
+                <div class="panel-heading">
+                    <h4>Go To Next Applicant</h4>
+                </div>
+                <ul class="list-group">
+                    <li class="list-group-item text-right">
+                        <span class="pull-left"><b>Go To The Next Applicant</b></span><button class="btn btn-success btn-sm" data-ng-click="gotoNextRandomApplicant()"><span class="glyphicon glyphicon-edit"></span></button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="row" data-ng-show="canGotoSummaryOfAllRatings()">
+        <div class="col-md-12 col-sm-12">
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <h4>ALL DONE!!! You can now see a summary of everyone's ratings.</h4>
+                </div>
+                <ul class="list-group">
+                    <li class="list-group-item text-right">
+                        <span class="pull-left"><b>Go To The Summary</b></span><button class="btn btn-info btn-sm" data-ng-click="gotoSummaryOfAllRatings()"><span class="glyphicon glyphicon-open"></span></button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

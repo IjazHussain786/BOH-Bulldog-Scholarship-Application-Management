@@ -1,0 +1,46 @@
+﻿<div class="modal-header">
+    Contact Information
+</div>
+<div class="modal-body">
+    <div class="well">
+        <div class="container">
+            <form role="form" name="referencePersonInformationForm" class="form-horizontal">
+                <div class="form-group">
+                    <label class="control-label" for="firstName">First Name</label>
+                    <div class="">
+                        <input type="text" class="form-control" name="firstName" data-ng-model="referencePersonalInformationModel.name.firstName" required placeholder="What is your first name?" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="lastName">Last Name</label>
+                    <div class="">
+                        <input type="text" class="form-control" name="lastName" data-ng-model="referencePersonalInformationModel.name.lastName" required placeholder="What is your last name?" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="occupation">Your Occupation</label>
+                    <div class="">
+                        <input type="text" class="form-control" name="occupation" data-ng-model="referencePersonalInformationModel.occupation" required placeholder="What is your occupation?" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="phoneNumber">Phone Number</label>
+                    <div class="">
+                        <input type="number" class="form-control" name="phoneNumber" data-ng-model="referencePersonalInformationModel.phoneInformationDto.phoneNumber" required placeholder="What is your phone number" maxlength="10"/>
+                    </div>
+                    <span>Phone Number : {{referencePersonalInformationModel.phoneInformationDto.phoneNumber | phoneNumberFormat}}</span>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="bestTimeToContact">Best Time To Contact You By Phone</label>
+                    <div class="">
+                        <select class="form-control" name="bestTimeToContact" data-ng-model="referencePersonalInformationModel.phoneInformationDto.bestTimeToContactByPhone" data-ng-options="opt as (opt | timeOfDayEnum) for opt in bestTimeToContactByPhone" required></select>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" ng-click="ok(referencePersonInformationForm)" data-ng-disabled="referencePersonInformationForm.$invalid">Submit Contact Information</button>
+    <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+</div>

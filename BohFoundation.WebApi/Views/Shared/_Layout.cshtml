@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+<html data-ng-app="BohFoundation">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="apple-touch-icon" href="/Content/Images/Logos/apple-touch-icon.png" />
+    @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/Bootstrap")
+    @Scripts.Render("~/bundles/applicationinsights")
+    <title>Beacon of Hope | Bulldog Scholarship</title>
+</head>
+    <body>
+        <toaster-container toaster-options="{'time-out': 3500, 'position-class': 'toast-top-right'}"></toaster-container>
+        @RenderBody()
+
+        @Scripts.Render("~/bundles/angular")
+        @Scripts.Render("~/bundles/angularroutes")
+        @Scripts.Render("~/bundles/angularresource")
+        @Scripts.Render("~/bundles/angulartouch")
+        @Scripts.Render("~/bundles/angularanimate")
+        @Scripts.Render("~/bundles/ui-bootstrap")
+        @Scripts.Render("~/bundles/scriptjs")
+        @Scripts.Render("~/bundles/dropzone")
+        @Scripts.Render("~/bundles/angularapp")
+        @Scripts.Render("~/bundles/minorfiles")
+
+    </body>
+</html>

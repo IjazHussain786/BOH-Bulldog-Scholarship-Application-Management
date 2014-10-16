@@ -1,0 +1,45 @@
+﻿<div class="modal-header">
+    Send Reference Email
+</div>
+<div class="modal-body">
+    <div class="well">
+        <form role="form" name="referenceEmailForm" class="form-horizontal">
+            <div class="form-group">
+                <label class="control-label" for="referenceEmail">Reference's Email</label>
+                <div class="">
+                    <input type="email" class="form-control" name="referenceEmail" data-ng-model="refernceInputModelInModal.referenceEmail" required placeholder="Email Address of Your Reference" />
+                </div>
+                <div class="alert alert-warning" style="max-width: 525px;" data-ng-show="referenceEmailForm.referenceEmail.$dirty">Please double check your reference's email address. This is not reversable and if it is wrong you will be unable to complete your application.</div>
+            </div>
+            <div class="form-group">
+                <label class="control-label" for="relationshipToReference">Your relationship to reference</label>
+                <div class="">
+                    <input type="text" class="form-control" name="relationshipToReference" data-ng-model="refernceInputModelInModal.relationshipToReference" required placeholder="How does this person know you? (Boss, Teacher, Pastor, etc)" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label" for="salutation">Emails Salutation</label>
+                <div class="">
+                    <input type="text" class="form-control" name="salutation" data-ng-model="refernceInputModelInModal.salutation" required placeholder="Example: Dear Mr. Sobieck," />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label" for="messageParagraph">Message to your reference</label>
+                <div class="">
+                    <textarea type="text" rows="5" class="form-control" name="messageParagraph" data-ng-model="refernceInputModelInModal.messageParagraph" required placeholder="It is highly recommended that you ask your references before you send this email. If you have done that, enter a paragraph explaining that you are applying for the Bulldog Scholarship. The email they recieve will walk them through their end. If they have problems, have them email their letter to references@bohfoundation.org"></textarea> 
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label" for="signature">Your signature</label>
+                <div class="">
+                    <input type="text" class="form-control" name="signature" data-ng-model="refernceInputModelInModal.signature" required placeholder="Example: Sincerely, Jane Doh (Include your name)" />
+                </div>
+            </div>
+        </form>
+
+    </div>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" ng-click="ok(referenceEmailForm)" data-ng-disabled="referenceEmailForm.$invalid">Send Reference Email</button>
+    <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+</div>

@@ -1,0 +1,108 @@
+﻿<applicant-nav-bar></applicant-nav-bar>
+<div class="container body-content">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3>
+                Do you have a paid job?
+                <span class="btn-group pull-right">
+                    <label class="btn btn-primary btn-sm" data-ng-model="getExtracurricularActivitiesModel().paidWork" btn-radio="true">Yes</label>
+                    <label class="btn btn-primary btn-sm" data-ng-model="getExtracurricularActivitiesModel().paidWork" btn-radio="false">No</label>
+                </span>
+            </h3>
+        </div>
+        <ul class="list-group">
+            <li class="list-group-item" data-ng-show="getExtracurricularActivitiesModel().jobs.length > 0">
+                <table class="table table-striped">
+                    <tr>
+                        <th>Employer</th>
+                        <th>Position</th>
+                        <th>Responsibilities</th>
+                        <th>Operations</th>
+                    </tr>
+                    <tr data-ng-repeat="job in getExtracurricularActivitiesModel().jobs">
+                        <td>{{job.employer}}</td>
+                        <td>{{job.position}}</td>
+                        <td>{{job.shortSummaryOfWorkResponsibilities}}</td>
+                        <td>
+                            <button class="btn btn-sm btn-primary" data-ng-click="editJob($index)"><span class="glyphicon glyphicon-edit"></span></button>
+                            <button class="btn btn-sm btn-danger" data-ng-click="deleteJob($index)"><span class="glyphicon glyphicon-trash"></span></button>
+                        </td>
+                    </tr>
+                </table>
+            </li>
+            <li class="list-group-item" data-ng-show="getExtracurricularActivitiesModel().paidWork">
+                <h4>
+                    Add New Job
+                    <span class="pull-right">
+                        <button class="btn btn-primary btn-sm" data-ng-click="addJob()">
+                            <span class="glyphicon glyphicon-plus"></span>
+                        </button>
+                    </span>
+                </h4>
+            </li>
+        </ul>
+        <div class="panel-heading">
+            <h3>
+                Do you do have any extracurricular activities(sports, clubs, church groups, etc)?
+                <span class="btn-group pull-right">
+                    <label class="btn btn-primary btn-sm" data-ng-model="getExtracurricularActivitiesModel().hasNonPaidActivities" btn-radio="true">Yes</label>
+                    <label class="btn btn-primary btn-sm" data-ng-model="getExtracurricularActivitiesModel().hasNonPaidActivities" btn-radio="false">No</label>
+                </span>
+            </h3>
+        </div>
+        <ul class="list-group">
+            <li class="list-group-item" data-ng-show="getExtracurricularActivitiesModel().activities.length > 0">
+                <table class="table table-striped">
+                    <tr>
+                        <th>Name of Activity</th>
+                        <th>What is involved</th>
+                        <th>Operations</th>
+                    </tr>
+                    <tr data-ng-repeat="activity in getExtracurricularActivitiesModel().activities">
+                        <td>{{activity.name}}</td>
+                        <td>{{activity.shortSummaryOfWhatIsInvolved}}</td>
+                        <td>
+                            <button class="btn btn-sm btn-primary" data-ng-click="editActivity($index)"><span class="glyphicon glyphicon-edit"></span></button>
+                            <button class="btn btn-sm btn-danger" data-ng-click="deleteActivity($index)"><span class="glyphicon glyphicon-trash"></span></button>
+                        </td>
+                    </tr>
+                </table>
+            </li>
+            <li class="list-group-item" data-ng-show="getExtracurricularActivitiesModel().hasNonPaidActivities">
+                <h4>
+                    Add New Activity
+                    <span class="pull-right">
+                        <button class="btn btn-primary btn-sm" data-ng-click="addActivity()">
+                            <span class="glyphicon glyphicon-plus"></span>
+                        </button>
+                    </span>
+                </h4>
+            </li>
+        </ul>
+        <ul class="list-group">
+            <li class="list-group-item" data-ng-hide="getExtracurricularActivitiesModel().lastUpdated == undefined"><h4>Last Updated:<span class="pull-right">{{getExtracurricularActivitiesModel().lastUpdated | date: 'longDate'}}</span></h4></li>
+            <li class="list-group-item">
+                <h4>
+                    Save Current
+                    <span class="pull-right">
+                        <span data-ng-show="!ableToSave()">
+                            <span data-ng-show="getExtracurricularActivitiesModel().paidWork && (getExtracurricularActivitiesModel().jobs == undefined || getExtracurricularActivitiesModel().jobs.length == 0)" class="text-danger">
+                                You need to add a job before you can save.
+                            </span>
+                            <span data-ng-show="getExtracurricularActivitiesModel().hasNonPaidActivities && (getExtracurricularActivitiesModel().activities == undefined || getExtracurricularActivitiesModel().activities.length == 0)" class="text-danger">
+                                You need to add an activity before you can save.
+                            </span>
+                        </span> 
+                        <button class="btn btn-success btn-sm" data-ng-click="saveExtracurriculars()" data-ng-disabled="!ableToSave()"><span class="glyphicon glyphicon-save"></span></button>
+                    </span>
+                </h4>
+            </li>
+            <li class="list-group-item list-group-item-danger" data-ng-show="getChangedButNotSaved()">
+                <h4>
+                    Your information has not been saved to the server.
+                </h4>
+            </li>
+            <li class="list-group-item list-group-item-success" data-ng-show="successfullySaved"><h4>You successfully saved your extracurricular information.</h4></li>
+        </ul>
+    </div>
+</div>

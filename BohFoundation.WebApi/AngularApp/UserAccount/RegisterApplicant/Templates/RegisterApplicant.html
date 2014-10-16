@@ -1,0 +1,41 @@
+﻿<form-title title="Applicant Registration"></form-title>
+<div class="container body-content">
+    <form role="form" name="registerForm" class="form-horizontal" data-ui-keypress="{13:'submitRegistration(registerForm)'}">
+        <div class="form-group">
+            <label class="col-sm-4 control-label" for="firstName">First Name</label>
+            <div class="col-sm-8">
+                <input type="text" class="form-control" id="firstName" data-ng-model="registrationInputModel.firstName" placeholder="First Name" required />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-4 control-label" for="lastName">Last Name</label>
+            <div class="col-sm-8">
+                <input type="text" class="form-control" id="lastName" data-ng-model="registrationInputModel.lastName" placeholder="Last Name" required />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-4 control-label" for="graduatingYear">Graduating Year</label>
+            <div class="col-sm-8">
+                <select class="form-control" id="graduatingYear" data-ng-model="graduatingYear" data-ng-options="opt for opt in graduatingYearArray"></select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-4 control-label" for="emailAddress">Email Address</label>
+            <div class="col-sm-8">
+                <input type="email" class="form-control" id="emailAddress" data-ng-model="registrationInputModel.emailAddress" placeholder="E-Mail Address" required />
+            </div>
+        </div>
+        <div data-ng-class="(passwordScore.score) > 2 ? 'form-group has-feedback has-success' : 'form-group has-feedback'">
+            <label class=" col-sm-4 control-label" for="password">Password</label>
+            <div class="col-sm-8 width-of-password-meter">
+                <input type="password" class="form-control" id="password" data-ng-model="registrationInputModel.password" placeholder="Password" required data-ng-change="checkScore(registrationInputModel.password)" popover="{{goodPasswordExplain}}" popover-trigger="focus" popover-placement="top" />
+                <password-field-and-meter></password-field-and-meter>
+            </div>
+        </div>
+    </form>
+    <div class="row">
+        <div class="col-sm-push-4 col-sm-2 col-xs-2">
+            <button class="btn btn-primary" data-ng-click="submitRegistration(registerForm)" data-ng-disabled="registerForm.$invalid || processing || passwordScore.score < 3">Register</button>
+        </div>
+    </div>
+</div>

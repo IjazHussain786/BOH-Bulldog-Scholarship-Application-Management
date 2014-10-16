@@ -1,0 +1,35 @@
+﻿<admin-nav-bar></admin-nav-bar>
+<div class="container">
+    <div class="col-sm-push-4 col-sm-8 col-xs-8">
+        <h4>Invite Application Evaluators</h4>
+    </div>
+</div>
+<div class="container body-content">
+    <form role="form" name="inviteApplicationEvaluatorForm" class="form-horizontal" data-ui-keypress="{13:'invitePerson(inviteApplicationEvaluatorForm)'}">
+        <div class="form-group">
+            <label class="col-sm-4 control-label" for="firstName">Recipient's First Name</label>
+            <div class="col-sm-8">
+                <input type="text" class="form-control" name="firstName" data-ng-model="newSendEmailContact.recipientFirstName" placeholder="Recipient's First Name" required />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-4 control-label" for="lastName">Last Name</label>
+            <div class="col-sm-8">
+                <input type="text" class="form-control" name="lastName" data-ng-model="newSendEmailContact.recipientLastName" placeholder="Recipient's Last Name" required />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-4 control-label" for="email">Email Address</label>
+            <div class="col-sm-8">
+                <input type="email" class="form-control" name="email" data-ng-model="newSendEmailContact.recipientEmailAddress" placeholder="Recipient's Email Address" required />
+            </div>
+        </div>
+    </form>
+    <div class="row">
+        <div class="col-sm-push-4 col-sm-2 col-xs-2">
+            <button class="btn btn-primary" data-ng-click="invitePerson(inviteApplicationEvaluatorForm)" data-ng-disabled="inviteApplicationEvaluatorForm.$invalid || processing">Invite Evaluator
+            <span class="glyphicon glyphicon-envelope"></span>
+            </button>
+        </div>
+    </div>
+</div>
