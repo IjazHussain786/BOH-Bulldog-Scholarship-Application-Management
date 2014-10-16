@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿// From https://github.com/brockallen/BrockAllen.MembershipReboot
+
+using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Data.Entity;
