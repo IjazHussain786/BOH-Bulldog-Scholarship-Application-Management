@@ -1,7 +1,7 @@
 Beacon of Hope - Bulldog Scholarship Application Management System
 ==========================================
 
-A system for managing applications for a scholarship build on top of Entity Framework, Azure, AngularJs, Bootstrap, ASP.Net MVC and WebAPI.
+A system for managing scholarship applications built on top of Entity Framework, Azure, AngularJs, Bootstrap, ASP.Net MVC and WebAPI.
 
 In order to get the application working you must:
  - Restore the NuGet packages.
