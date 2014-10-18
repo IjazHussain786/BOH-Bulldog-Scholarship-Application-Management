@@ -15,7 +15,7 @@ namespace BohFoundation.WebApi
             var oAuthServerConfig = new OAuthAuthorizationServerOptions
             {
                 Provider = new CustomOAuthProvider(),
-                AccessTokenExpireTimeSpan = TimeSpan.FromDays(4),
+                AccessTokenExpireTimeSpan = TimeSpan.FromHours(6),
                 TokenEndpointPath = new PathString("/token")
             };
 
